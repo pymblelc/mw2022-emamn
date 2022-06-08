@@ -3,8 +3,9 @@ body{
     background-color: rgb(195, 214, 255);
     font-family: sans-serif; 
     color:beige;
-    background-image: url(../images/cloud.jpg);
-    background-size: cover;
+    background-image: url("../images/cloud.jpg");
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 h1{
@@ -14,15 +15,11 @@ h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#background{ /*maybe a div FOR BACKGROUND SOURCE but why is there a */
-    height: 846px;
-    width: 1475px;
 
-}
 #branch{
     position: absolute;
     z-index: -1;
-    height: 670px;
+    height: 676px;
     width: 1478px;
     bottom:0px;
     left:0px;
@@ -86,7 +83,7 @@ h1{
     background-position: 50% 50%;
     cursor: pointer;
     border-radius: 20px;
-    position: absolute;
+    position: fixed;
 }
 
 .c{
@@ -174,15 +171,17 @@ h1{
   #stave{
       height: 200px; 
       width: 1490px;
-      position: relative;
-      top: 90px;
+
+      position: absolute;
+      top: 98px;
   }
 
   #stave2{
     height: 200px; 
     width: 1490px;
+    position: absolute;
     position: relative;
-    top: 110px;
+    top: 315px;
 }
 
 .staveLines{
@@ -190,6 +189,8 @@ h1{
       width: 10px;
       height: 142px;
       position: absolute;
+      
+      
       top: 125px;
 }
 
@@ -198,7 +199,8 @@ h1{
     width: 10px;
     height: 144px;
     position: absolute;
-    bottom: 375px;
+    
+    bottom: 405px;
 }
 
 #staveLine1, #staveLine5 {
@@ -246,7 +248,7 @@ h1{
 #timeSignature2{
     height: 143px;
     width: 60px;
-    top: 350px;
+    top: 349px;
     left: 190px;
     position: absolute;
 }
@@ -351,7 +353,7 @@ h1{
 }
 /* B2 NOTE STAFF 2 PLACEMENTS */
 #bCrotchet9, #bCrotchet10, #bCrotchet11, #bCrotchet12, #bCrotchet13, #bCrotchet14, #bCrotchet15, #bCrotchet16{
-    bottom: 320px;
+    bottom: 350px;
 }
 
 /* C2 NOTE STAFF 1 PLACEMENTS */
@@ -360,7 +362,7 @@ h1{
 }
 /* C2 NOTE STAFF 2 PLACEMENTS */
 #c2Crotchet9, #c2Crotchet10, #c2Crotchet11, #c2Crotchet12, #c2Crotchet13, #c2Crotchet14, #c2Crotchet15, #c2Crotchet16{
-    bottom: 334px;
+    bottom: 366px;
 }
 
 

@@ -4,6 +4,7 @@ body{
     background-image: url(../images/backgroundPROTO.jpg);
     background-size: cover;
     font-family: sans-serif; 
+    background-repeat: no-repeat;
     /* background-image: url(/!major/images/backgroundPROTO.jpg)  WHY IS THIS BROKEN*/
 }
 
@@ -26,7 +27,7 @@ h1{ /* this is off with console */
     border-radius: 30px;
     position: fixed;
     width: 200px;
-    margin-top: 50px;
+    top: 500px;
 }
 
 #go{ /* START */
@@ -35,7 +36,7 @@ h1{ /* this is off with console */
 
 }
 
-#playPauseBTN{  /*   class is with menuButton -> TEST VOLUME    */
+#playButton{  /*   class is with menuButton -> TEST VOLUME    */
     top: 500px;
     left: 250px;
 }
