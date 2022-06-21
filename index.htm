@@ -9,8 +9,7 @@
     </head>
     <body>
         <!-- Hello world -->
-        <!-- Move to new screen once the person is logged in and has been clicked (done in javascript)-->
-        <button id= "btnStart" class = "menuButton">START</button>
+        <button id= "btnStart" class = "menuButton" onclick= "location.href='./choosesomething.htm'">START</button>
 
         <h1> it's <!--<br>--> broken </h1>
 
@@ -35,17 +34,17 @@
 
         </div>
 
-        <!-- LOGIN/REGISTER STUFF -->
 
+        <div id="accountInputs">
         <input id= user>Username:</input>
         <input id= pass >Password:</input>
         <input id= email >Email:</input>
         <input input type = checkbox id= checkbox>Hearing Impairment?</input>
+
+
         <button id="login">Login</button>
         <button id="signup">Sign up</button>
-
-        
-
+        </div>
 
     <script type="text/javascript" src="js/menu.js"></script>
     </body>

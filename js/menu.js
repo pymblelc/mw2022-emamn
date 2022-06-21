@@ -1,6 +1,10 @@
+
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlAccounts = 'https://enirui-a66e.restdb.io/rest/accounts';
 var login = false;
+
+$('#btnStart').hide();
+$('#playButton').hide();
 
 //AUDIO TEST
 
@@ -37,12 +41,6 @@ function setFullVolume() {
 } 
 */
 
-
-
-
-// DATABASE ---------------------------------------------------------------------------
-//Check for account existance (GET FUNCTION)
-//DO NOT display database in console 
 function checkAccounts(url,apikey, username, password, email){
     var settings = {
         "async": true,
@@ -81,9 +79,29 @@ function checkAccounts(url,apikey, username, password, email){
     });  
 }
 
+//clear input once checked and account exists *
+
+$('#signup').click(function(){
+    //checkAccounts(urlAccounts, apikey, $('#user').val(), $('#pass').val(), $('#email').val());
+    console.log('signup');
+    var tempItem = {
+        Username: $('#user').val(),
+        Password: $('#pass').val(),
+        Email:$('#email').val()}
+    addAccount(tempItem, urlAccounts, apikey,);
+
+    });
+
+
 function checkLoggedin(){
     if(login === true){
         console.log('user is logged in')
+        //HIDE ALL LOGIN/SIGNUP 
+        $('#accountInputs').hide();
+        //only hides input boxes
+
+        $('#btnStart').show();
+        $('#playButton').show();
     }
     else(
         console.log('user is NOT logged in')
@@ -93,7 +111,7 @@ function checkLoggedin(){
 
 
 function addAccount(item, url, apikey){
-    var settings = {
+    var settings = { // Get existing users reqeust for 
         "async": true,
         "crossDomain": true,
         "url": url,
@@ -108,53 +126,60 @@ function addAccount(item, url, apikey){
     }
     
     $.ajax(settings).done(function (response) {
-        console.log('Item successfully added');
-        //clear the input
-        $('#user').val('');
-        $('#pass').val('');
-        $('#email').val('');
-        console.log(//parameter response
-            response);
+        // if response didn't find exisitng user, then create
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": url,
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json",
+                "x-apikey": apikey,
+                "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(item)
+        }
+        
+        $.ajax(settings).done(function (response) {
+            console.log('Item successfully added');
+            //clear the input
+            $('#user').val('');
+            $('#pass').val('');
+            $('#email').val('');
+            console.log(//parameter response
+                response);
+        });
     });
 
-}
-
-$('#signup').click(function(){
-    //checkAccounts(urlAccounts, apikey, $('#user').val(), $('#pass').val(), $('#email').val());
-    console.log('signup');
-    var tempItem = {
-        Username: $('#user').val(),
-        Password: $('#pass').val(),
-        Email:$('#email').val()}
-    addAccount(tempItem, urlAccounts, apikey, );
-    });
-
-
-/*insert function --------------------------------------------
-function addAccount(item, url, apikey){
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": url,
-        "method": "POST",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": apikey,
-            "cache-control": "no-cache"
-        },
-        "processData": false,
-        "data": JSON.stringify(item)
-    }
+    // var settings = {
+    //     "async": true,
+    //     "crossDomain": true,
+    //     "url": url,
+    //     "method": "POST",
+    //     "headers": {
+    //         "content-type": "application/json",
+    //         "x-apikey": apikey,
+    //         "cache-control": "no-cache"
+    //     },
+    //     "processData": false,
+    //     "data": JSON.stringify(item)
+    // }
     
-    $.ajax(settings).done(function (response) {
-        console.log('Item successfully added');
-        console.log(//parameter response
-            response);
-    });
+    // $.ajax(settings).done(function (response) {
+    //     console.log('Item successfully added');
+    //     //clear the input
+    //     $('#user').val('');
+    //     $('#pass').val('');
+    //     $('#email').val('');
+    //     console.log(//parameter response
+    //         response);
+    // });
 
 }
 
-*/
+
+
 $('#login').click(function(){
     checkAccounts(urlAccounts, apikey, $('#user').val(), $('#pass').val(), $('#email').val());
 });
@@ -163,6 +188,7 @@ $('#login').click(function(){
 $('#btnStart').click(function(){  
     checkLoggedin();
     if(login === true){
-        console.log('redirected off screen') //redirect them to another page
+        console.log('redirected');
     }
 });
+

@@ -226,13 +226,13 @@ function print() {
   //console.log(noteDisplay[i]);
   //console.log(i);
 
-  console.log(i);
+  console.log('array ' + i);
   var position = i % 16;
   position = position + 1;
   if (position == 1) {
     reset();
   }
-  console.log(position)
+  console.log('position ' + position)
   $("#" + noteDisplay[i] + "Crotchet" + position).show();
   i++;
   // }
