@@ -111,7 +111,7 @@ function checkLoggedin(){
 
 
 function addAccount(item, url, apikey){
-    var settings = { // Get existing users reqeust for 
+    var settings = { // Get existing users reqeust for
         "async": true,
         "crossDomain": true,
         "url": url,
@@ -142,7 +142,7 @@ function addAccount(item, url, apikey){
         }
         
         $.ajax(settings).done(function (response) {
-            console.log('Item successfully added');
+            console.log('Item add');
             //clear the input
             $('#user').val('');
             $('#pass').val('');
