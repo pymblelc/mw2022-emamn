@@ -13,7 +13,8 @@ var sound = document.getElementById("sound");
 let click = 0;
 //example
 
-
+// var spanWidth = $('#birdTalk span').width();
+// $('#birdTalk').animate( { width: spanWidth }, 1500 );
 
 $('#next').click(function(){
     sound.load();
@@ -27,6 +28,9 @@ $('#next').click(function(){
     switch(click){
         case 1:
             $('#birdTalk span').text('Let' + "'" +'s go over the basics shall we?');
+            //set width to 0 once again
+        
+            // $('#birdTalk').animate( { width: spanWidth }, 1000 );
             // ('#birdExplain1').effect( "bounce", {times:1}, 300 );
         break;
 
@@ -34,6 +38,7 @@ $('#next').click(function(){
             $('#birdTalk span').text('You see this set of 5 horizontal lines?');
             $('#birdHappy').hide();
             $('#birdExplain1').show();
+            doBounce($('#birdExplain1'), 1, '30px', 300);
             // $("#birdExplain1").style.left = 200;
         break;
 
@@ -45,6 +50,8 @@ $('#next').click(function(){
             $('#birdTalk span').text('This symbol you see here is called a Trebel Clef which represents notes above middle C, you' + "'" + 'll come across this when playing instruments like piano, violin, or the flute.');
             $('#birdExplain1').hide();
             $('#birdExplain2').show();
+
+            doBounce($('#birdExplain2'), 1, '30px', 300);
         break;
 
         case 5:
@@ -61,6 +68,7 @@ $('#next').click(function(){
 
             $('#birdExplain2').hide();
             $('#birdExplain1').show();
+            doBounce($('#birdExplain1'), 1, '30px', 300);
         break;
 
         case 7:
@@ -69,6 +77,7 @@ $('#next').click(function(){
 
             $('#birdExplain1').hide();
             $('#birdHappy').show();
+            doBounce($('#birdHappy'), 1, '30px', 300);
         break;
 
         case 8:
@@ -77,6 +86,7 @@ $('#next').click(function(){
 
             $('#birdHappy').hide();
             $('#birdExplain2').show();
+            doBounce($('#birdExplain2'), 1, '30px', 300);
         break;
 
         case 9:
@@ -89,8 +99,9 @@ $('#next').click(function(){
             $('.staveLines').hide();
             $('#fullScale').show();
 
-            $('#birdHappy').hide();
-            $('#birdExplain2').show();
+            $('#birdExplain2').hide();
+            $('#birdExplain1').show();
+            doBounce($('#birdExplain1'), 1, '30px', 300);
         break;
 
         case 10:
@@ -102,8 +113,19 @@ $('#next').click(function(){
             $('#birdExplain2').hide();
             $('#birdExplain1').show();
         break;
+
+        case 11:
+            $('#birdTalk span').text('I got nothin help');
     }
 }); 
+
+//Bouncing function for every animation replacement
+function doBounce(element, times, distance, speed) {
+    for(var i = 0; i < times; i++) {
+        element.animate({marginTop: '-='+distance}, speed)
+            .animate({marginTop: '+='+distance}, speed);
+    }        
+}
 
 // $('#previous').click(function(){
 //     sound.load();

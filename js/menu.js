@@ -1,3 +1,4 @@
+// -- store some username
 
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlAccounts = 'https://enirui-a66e.restdb.io/rest/accounts';
@@ -17,29 +18,6 @@ $('#playButton').click(function () {
 function playSound() {
     sound.play();
 }
-/*
-function stop (){
-    playPause();
-    audio.pause();
-    audio.currentTime = 0;
-    playPauseBTN.innerHTML = "Play &#9658"
-}
-
-
-var x = document.getElementById('audio');
-
-function setHalfVolume() { 
-  x.volume = 0.2;
-}
-   
-function setHalfVolume() { 
-    x.volume = 0.5;
-}
-
-function setFullVolume() { 
-  x.volume = 1.0;\
-} 
-*/
 
 function checkAccounts(url,apikey, username, password, email){
     var settings = {
@@ -54,7 +32,7 @@ function checkAccounts(url,apikey, username, password, email){
         }
     }
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        // console.log(response);
         $('#user').val('');
         $('#pass').val('');
         $('#email').val('');
@@ -177,8 +155,6 @@ function addAccount(item, url, apikey){
     // });
 
 }
-
-
 
 $('#login').click(function(){
     checkAccounts(urlAccounts, apikey, $('#user').val(), $('#pass').val(), $('#email').val());
