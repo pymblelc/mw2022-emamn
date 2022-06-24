@@ -1,16 +1,24 @@
 var stopped = false;
+let notePerfect = false;
+let miss = true;
+combo = 0;
 
 const button = document.querySelector('#btnStart')
 button.disabled = false;
 
 $('#btnStart').click(function(){
   console.log('SONG START');
+  //display combo
+
+
+
+  moveNotes1();
+  button.disabled = true
+
   //let intervalId = setInterval(moveNotes1);
   // const myInterval = setInterval(moveNotes1, 10);
-  moveNotes1();
   // getPos(myInterval);
   //clearInterval(intervalId);
-  button.disabled = true
   //moveEnemy1();
   //start function
   //$("#note1").animate({top: '860px'}, 7000); 
@@ -89,22 +97,30 @@ function checkCollisions(arrTargets, theCharacter){
     switch (itemName){
       case 'perfect':
           $('#perfect').css("background-color", "red");
-          $('#n1').hide();
           console.log('PERFECT')
+          notePerfect = true;
+          miss = false;
+
+          combo = combo + 1
+          $("#combo").text(combo);
+
+          //WHEN MISS COMBO = 0 -----------
+
           //clearInterval(myInterval);
 
-          break;
-      case 'pass':
-          $('#n1').hide();
-          console.log('passed');
+      //     break;
+      // case 'pass':
+      //     $('#n1').hide();
+      //     console.log('passed');
           
     }
   }
   }
 
 //instances
-var bad = new notes(id="n1");
-bad.create();
+var note = new notes(id="n1");
+note.create();
+
 
 //create a var that constructs a different variable for the position
 
@@ -114,20 +130,46 @@ bad.create();
 //enemy 1
 var noteHit = false;
 function moveNotes1(){ //clear interval moveNotes1
-  $('#n1').animate({"top": "+=1", }, 0.1, "linear");// checkPass);
+  $('#n1').animate({"top": "+=5", }, 0, "linear");// checkPass);
   console.log($("#n1")[0].style.top);
 
-  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 800) {
-    $('#n1').hide();
-    return;
+  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 780) {
+    $("#n1")[0].style.top = 0;
+    //$('#n1').show();
+    //return;
   }
+  
 
-  if (noteHit) {
-    return;
-  }
+  $('body').keydown(function(event){
+    //move down
+    if(event.which == 32){
+      $("#n1")[0].style.top = 0;
+    }
+  });
+  
+
+    
+  // if(noteHit){
+  //   $('#n1').hide();
+  //   console.log('miss');
+  // }
 
   requestAnimationFrame(moveNotes1);
 }
+
+if (!miss) {
+    console.log('hit');
+}
+
+// if(notePerfect){
+//   console.log('dont hide');
+
+// } else if (noteHit) {
+//   $('#n1').hide();
+//   //console.log('miss');
+//   return;
+// //else if notehit then miss
+// }
 
 document.addEventListener("keydown", function(e) {
   if (e.key == " ") {
@@ -166,22 +208,6 @@ etc for other values
 ---------------------------------------------------------------------------------------------------------------------------------------------
 */
 
-function getPos(myInterval){
-  let elem = document.querySelector('#n1');
-  let rect = elem.getBoundingClientRect();
-  console.log("y: "+ rect.y);
-  
-  if (rect.y == window.innerHeight){
-    console.log('stop moving')
-    console.log(window.innerHeight);
-    clearInterval(myInterval);
-    $('#n1').hide();
-
-    
-  }
-
-  
-}
 
 /*
 While loop:

@@ -1,0 +1,180 @@
+/* navigation */
+body{
+    background-color: rgb(0, 0, 0);
+    text-align: centre;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("../images/cloud.jpg");
+    background-repeat: no-repeat;
+    background-size: 1480px 1100px;
+    
+    
+}
+
+h1{
+    top:-10px;
+    position: absolute;
+    left: 630px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buttons{
+    top:0px;
+    right:0px;
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    margin-right: 50px;
+    margin-top: 10px;
+    border-radius: 50px;
+    background: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#btnBack{
+    left: 10px;
+    border-radius: 50px;
+    width: 50px;
+}
+
+#btnMenu{
+    left: 70px;
+}
+
+#bar{
+    background-color: rgb(169, 255, 143);
+    top: 0px;
+    position: absolute;
+    height: 70px;
+    width: 1480px;
+    z-index: -1;
+    /* background-image: url("images/learningOption.png"); */
+    background-repeat: no-repeat;
+    background-position-y: -50px;
+    background-position-x: 200px;
+    background-size: 200px;
+}
+
+/* bird */
+
+.birdGuide{
+    width: 500px;
+    height: 500px;
+
+    top: 200px;
+    position: absolute;
+    z-index: -1;
+}
+
+.talkBubble{
+    background-color: white;
+    width: 1100px;
+    height: 150px;
+    border-radius: 10px;
+    position: absolute;
+
+    bottom:150px;
+    left: 300px;
+}
+
+.talk{
+    bottom: 230px;
+    position: absolute;
+    left: 350px;
+
+    width: 1000px;
+    height: 50px;
+
+    font-size: 30px;
+}
+
+#previous{
+    right: 100px;
+}
+
+
+/* whole stave */
+#treble{
+    height: 550px;
+    width: 340px;
+    top: 70px;
+    left: 480px;
+    position: absolute;
+  }
+
+#bass{
+    height: 280px;
+    width: 220px;
+    top: 150px;
+    left: 550px;
+    position: absolute;
+  }
+
+  #TS{
+      height: 320px;
+      top: 153px;
+      left: 780px;
+      position: absolute;
+  }
+  
+
+
+.line{
+    position: absolute;
+    width: 900px;
+    right: 100px;
+    height: 6px;
+    background-color: black;
+    color: black;
+    font-size: 0px;
+
+    z-index: -1;
+}
+
+#lineE{
+    top: 470px;
+    
+}
+#lineG{
+    top: 390px;
+}
+#lineB{
+    top: 310px;
+}
+#lineD{
+    top: 230px;
+}
+#lineF{
+    top: 150px;
+}
+
+.staveLines{
+    background-color: black;
+    width: 10px;
+    height: 323px;
+    position: absolute;
+    top: 153px;
+}
+
+#staveLine1, #staveLine5 {
+    left: 504px;
+}
+
+#staveLine2, #staveLine6{
+      right: 120px;
+      width: 5px;
+}
+
+#staveLine3, #staveLine7{
+    right: 100px;
+}
+
+.fullScale{
+    height: 400px;
+    width: 1100px;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+}

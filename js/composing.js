@@ -1,5 +1,4 @@
 var i = 0;
-
 $('.crotchet1').hide();
 $('.crotchet2').hide();
 $('.crotchet3').hide();
@@ -18,6 +17,7 @@ $('.crotchet14').hide();
 $('.crotchet15').hide();
 $('.crotchet16').hide();
 
+console.log(i);
 
 
 
@@ -189,6 +189,7 @@ $('#btnReset').click(function () {
 });
 
 function reset() {
+  //!!!!!!!!!!! array and position reset
   console.log('reset');
   $('.crotchet1').hide();
   $('.crotchet2').hide();
@@ -206,7 +207,8 @@ function reset() {
   $('.crotchet14').hide();
   $('.crotchet15').hide();
   $('.crotchet16').hide();
-  //noteDisplay = [];
+
+  //i = 0;
 }
 
 $('#btnPlay').click(function () {
