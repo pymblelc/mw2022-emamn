@@ -1,11 +1,15 @@
 
 $('.birdGuide').hide();
-$('#disclaimer').hide();
+$('.noteButton').hide();
+$('.note').hide();
 $('#bass').hide();
 $('#TS').hide();
 $('.fullScale').hide();
 $('#birdHappy').show();
+$('#btnSkip').hide();
 
+$('#btnReady').hide();
+$('#btnNotready').hide();
 
 
 var sound = document.getElementById("sound");
@@ -17,9 +21,9 @@ let click = 0;
 // $('#birdTalk').animate( { width: spanWidth }, 1500 );
 
 $('#next').click(function(){
-    sound.load();
-    sound.play();
     
+    clickSound();
+
     click = click + 1;
     console.log(click);
     
@@ -28,7 +32,12 @@ $('#next').click(function(){
     switch(click){
         case 1:
             $('#birdTalk span').text('Let' + "'" +'s go over the basics shall we?');
+            $('#birdHappy').show();
             //set width to 0 once again
+            $('#btnReady').hide();
+            $('#btnNotready').hide();
+            $('#btnSkip').show();
+            // $('#btnSkip').hide();
         
             // $('#birdTalk').animate( { width: spanWidth }, 1000 );
             // ('#birdExplain1').effect( "bounce", {times:1}, 300 );
@@ -73,7 +82,7 @@ $('#next').click(function(){
 
         case 7:
             $('#birdTalk span').text('The stave is significantly important for the placement of these music notes as each position represents a certain key as you can see here!');
-            $('#disclaimer').show();
+            // $('#disclaimer').show();
 
             $('#birdExplain1').hide();
             $('#birdHappy').show();
@@ -112,12 +121,159 @@ $('#next').click(function(){
 
             $('#birdExplain2').hide();
             $('#birdExplain1').show();
+            $('.noteButton').show();
         break;
 
         case 11:
             $('#birdTalk span').text('I got nothin help');
+
+        break;
+
+        case 12:
+            $('#birdTalk span').text('There are many more complex symbols and notations that are used in Music but we can go over those later.');
+            $('#birdComplex').show();
+            doBounce($('#birdComplex'), 1, '30px', 300);
+
+            $('#birdExplain1').hide();
+        
+        break;
+
+        case 13:
+            $('#birdTalk span').text('It looks like we' + "'" + 're done with the basics! Ready to test your knowledge?' );
+            $('#birdHappy').show();
+            $('#birdComplex').hide();
+            $('#next').hide();
+
+            $('#btnReady').show();
+            $('#btnNotready').show();
+
+
+            $('.line').show();
+            $('#treble').show();
+            $('#TS').show();
+            $('.staveLines').show();
+            $('#acronymScale').hide();
+
+
+            doBounce($('#birdHappy'), 1, '30px', 300);
     }
 }); 
+
+$('#btnSkip').click(function(){
+    clickSound();
+
+    $('#birdShock').show();
+    $('#birdHappy').hide();
+    $('#birdExplain1').hide();
+    $('#birdExplain2').hide();
+    $('#birdComplex').hide();
+    $('.noteButton').hide();
+
+
+
+    doBounce($('#birdShock'), 1, '30px', 300);
+    $('#birdTalk span').text('Wow! You already know this stuff? Would you like to test your knowledge?');
+
+    $('#btnReady').show();
+    $('#btnNotready').show();
+    $('#next').hide();
+    $('#btnSkip').hide();
+});
+
+
+$('#btnNotready').click(function(){
+    clickSound();
+
+    $('#birdTalk span').text('Choose what you would like to revise!');
+    $('#birdShock').hide(); //skipped through guide
+    $('#birdHappy').hide(); //gone through guide
+
+    $('#birdExplain2').show();
+    // $('#btnReady').hide();
+    $('#btnNotready').hide();
+
+    $('.noteButton').show();
+});
+
+
+
+
+
+
+
+
+
+$('#C').click(function(){
+    staveDisplay();
+    $('#cNote').show();
+    $('#birdTalk span').text('This is note C');
+
+});
+
+$('#D').click(function(){
+    staveDisplay();
+    $('#dNote').show();
+    $('#birdTalk span').text('This is note D');
+
+    
+});
+
+$('#E').click(function(){
+    staveDisplay();
+    $('#eNote').show();
+    $('#birdTalk span').text('This is note E');
+});
+
+$('#F').click(function(){
+    staveDisplay();
+    $('#fNote').show();
+    $('#birdTalk span').text('This is note F');
+});
+
+$('#G').click(function(){
+    staveDisplay();
+    $('#gNote').show();
+    $('#birdTalk span').text('This is note G');
+});
+
+$('#A').click(function(){
+    staveDisplay();
+    $('#aNote').show();
+    $('#birdTalk span').text('This is note A');
+});
+
+$('#B').click(function(){
+    staveDisplay();
+    $('#bNote').show();
+    $('#birdTalk span').text('This is note B');
+});
+
+$('#C2').click(function(){
+    staveDisplay();
+    $('#c2Note').show();
+    $('#birdTalk span').text('This is note C');
+});
+
+$('#D2').click(function(){
+    staveDisplay();
+    $('#d2Note').show();
+    $('#birdTalk span').text('This is note D');
+});
+
+$('#E2').click(function(){
+    staveDisplay();
+    $('#e2Note').show();
+    $('#birdTalk span').text('This is note E');
+});
+
+$('#F2').click(function(){
+    staveDisplay();
+    $('#f2Note').show();
+    $('#birdTalk span').text('This is note F');
+});
+
+
+
 
 //Bouncing function for every animation replacement
 function doBounce(element, times, distance, speed) {
@@ -134,3 +290,28 @@ function doBounce(element, times, distance, speed) {
 //     click = click - 1
 //     console.log(click);
 // });
+
+
+//click sound function
+function clickSound(){
+    sound.load();
+    sound.play();
+}
+
+
+function staveDisplay(){
+    sound.load();
+    sound.play();
+
+    $('.fullScale').hide();
+    $('#bass').hide();
+    $('.note').hide();
+
+
+    $('#treble').show();
+    $('.line').show();
+    $('.staveLines').show();
+    $('#TS').show();
+    
+
+}

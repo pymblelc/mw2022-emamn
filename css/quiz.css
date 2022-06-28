@@ -47,7 +47,6 @@ h1{
     right: 70px;
     background-color: rgb(127, 232, 164);
     top: 670px;
-    width: 100px;
 }
 
 
@@ -116,7 +115,7 @@ h1{
 }
 
 .talk{
-    bottom: 220px;
+    bottom: 230px;
     position: absolute;
     left: 325px;
 
@@ -293,16 +292,3 @@ h1{
 
 #cNote{top: 270px;}#dNote{top:225px}#eNote{top: 190px}#fNote{top: 150px}#gNote{top: 110px}#aNote{top: 68px}#bNote{top: 270px}
 #c2Note{top: 230px}#d2Note{top: 190px}#e2Note{top: 150px}#f2Note{top: 110px}
-
-#name{
-    position: absolute;
-    background-color: rgb(165, 116, 255);
-    width: 130px;
-    height: 30px;
-    
-    text-align: center;
-    font-size: 20px;
-    border-radius: 10px;
-    bottom: 280px;
-    left: 320px;
-}
