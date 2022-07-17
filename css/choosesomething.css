@@ -1,6 +1,6 @@
 body{
     font-size: 15px;
-    background-color: rgb(195, 214, 255);
+    background-color: rgb(253, 211, 211);
     font-family: sans-serif; 
 
 }
@@ -14,16 +14,30 @@ h1{ /* this is off with console */
     top: 120px;
 }
 
+#breakScreen{
+    height: 800px;
+    width: 1400px;
+    margin-left: 90px;
+    position: absolute;
+}
+#loading{
+    height: 200px;
+    width: 300px;
+    bottom: 0px;
+    position: absolute;
+}
+
 #background{ /*maybe a div FOR BACKGROUND SOURCE but why is there a */
     height: 846px;
     width: 1475px;
 
 }
 
+
 .box{
     width:200px;
     height:200px;
-    background-color: rgb(69, 170, 131);
+    background-color: rgb(221, 205, 255);
     border-radius: 100px;
     position: fixed;
     text-align: center;
@@ -34,7 +48,7 @@ h1{ /* this is off with console */
 
 .text{
     font-size: 30px;
-    color: rgb(0, 0, 0);
+    color: rgb(158, 116, 244);
     bottom: 260px;
     /* the console really messes this up*/
 }

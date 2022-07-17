@@ -1,4 +1,5 @@
 // -- store some username
+$('#notFound').hide();
 
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlAccounts = 'https://enirui-a66e.restdb.io/rest/accounts';
@@ -6,7 +7,7 @@ var login = false;
 
 $('#btnStart').hide();
 $('#playButton').hide();
-
+// $('.menuButton').show();
 //AUDIO TEST
 
 var sound = document.getElementById("sound");

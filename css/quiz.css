@@ -12,9 +12,19 @@ body{
 
 h1{
     top:-10px;
-    color: rgb(52, 141, 62);
+    color: rgb(143, 98, 211);
     position: absolute;
     left: 630px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+h2{
+    top:150px;
+    font-size: 50px;
+    color: rgb(24, 21, 28);
+    position: absolute;
+    left: 550px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -39,37 +49,53 @@ h1{
     width: 50px;
 }
 
+#breakScreen{
+    height: 800px;
+    width: 1400px;
+    margin-left: 90px;
+    position: absolute;
+}
+#loading{
+    height: 200px;
+    width: 300px;
+    bottom: 0px;
+    position: absolute;
+}
+
+
 #btnMenu{
     left: 70px;
 }
 
 #next{
     right: 70px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(164, 127, 232);
     top: 670px;
+    width: 100px;
 }
 
 
 #btnReady{
     right: 500px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(183, 127, 232);
     top: 670px;
 }
 
 #btnSkip{
     left: 100px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(172, 127, 232);
     top: 670px;
 }
 
 #btnNotready{
     right: 300px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(179, 127, 232);
     top: 670px;
 }
 
+
 #bar{
-    background-color: rgb(169, 255, 143);
+    background-color: rgb(191, 164, 255);
     top: 0px;
     position: absolute;
     height: 70px;
@@ -82,213 +108,189 @@ h1{
     background-size: 200px;
 }
 
-/* bird */
-
-.birdGuide{
-    width: 500px;
-    height: 500px;
-
-    top: 200px;
-    position: absolute;
-    z-index: -1;
-}
-
-#birdComplex{
-    width: 500px;
-    height: 500px;
-
-    top: 200px;
-    position: absolute;
-    z-index: 1;
-}
-
-.talkBubble{
-    background-color: white;
-    width: 1100px;
-    height: 150px;
-    border-radius: 10px;
-    position: absolute;
-
-    bottom:150px;
-    left: 300px;
-    z-index: -1;
-}
-
-.talk{
-    bottom: 230px;
-    position: absolute;
-    left: 325px;
-
-    width: 1000px; 
-    height: 50px; 
-
-    font-size: 30px;
-
-
-    /* width: 0px; height: 2em; white-space: nowrap; overflow: hidden; */
-
-
-}
-
-#previous{
-    right: 100px;
-}
-
-
-/* whole stave */
-#treble{
-    height: 550px;
-    width: 340px;
-    top: 70px;
-    left: 480px;
-    position: absolute;
-    z-index: -1;
-  }
-
-#bass{
-    height: 280px;
-    width: 220px;
-    top: 150px;
-    left: 550px;
-    position: absolute;
-  }
-
-  #TS{
-      height: 320px;
-      top: 153px;
-      left: 780px;
-      position: absolute;
-  }
-  
-
-
-.line{
-    position: absolute;
+#display{
+    height:500px;
     width: 900px;
-    right: 100px;
-    height: 6px;
-    background-color: black;
-    color: black;
-    font-size: 0px;
-
-    z-index: -1;
-}
-
-#lineE{
-    top: 470px;
+    top: 190px;
+    /* margin-left: 50px; */
+ 
+    left: 300px;
     
+    position: absolute;
+    /* background-color: black; */
 }
-#lineG{
-    top: 390px;
+
+.generate{
+    position: absolute;
+    bottom: 100px;
+    /* margin-left: 50px; */
+    width: 200px;
+    height: 100px;
+
+    left: 650px;
 }
-#lineB{
-    top: 310px;
+
+.options{
+    position:absolute;
+    bottom: 200px;
+    left: 500px;
 }
-#lineD{
-    top: 230px;
+
+#answerD{
+    left: 600px;
 }
-#lineF{
+
+#answerE{
+    left: 700px;
+}
+
+#answerF{
+    left: 800px;
+}
+
+#answerG{
+    left: 900px;
+}
+
+#answerA{
+    left: 1000px;
+}
+
+#answerB{
+    bottom: 150px;
+    left: 550px;
+}
+
+#answerC2{
+    bottom: 150px;
+    left: 650px;
+}
+
+#answerD2{
+    bottom: 150px;
+    left: 750px;
+}
+
+#answerE2{
+    bottom: 150px;
+    left: 850px;
+}
+
+#answerF2{
+    bottom: 150px;
+    left: 950px;
+}
+
+
+#gameover{
+    height: 800px;
+    width: 1300px;
+    left: 150px;
+    position: absolute;
+}
+
+#tryagain{
+    top: 480px;
+    left: 400px;
+    width: 250px;
+    height: 70px;
+    font-size: 25px;
+    position: absolute;
+}
+
+.stats{
+    position: absolute;
+    font-size: 20px;
+    right:100px;
+    top: 100px;
+}
+
+#statAttempts{
+    top: 200px;
+}
+
+#finalScore{
+    top: 450px;
+    left: 480px;
+}
+
+#statCorrect{
     top: 150px;
 }
 
-.staveLines{
-    background-color: black;
-    width: 10px;
-    height: 323px;
+
+#talkBubble{
+    background-color: white;
     position: absolute;
-    top: 153px;
+    top: 110px;
+    margin-left: 80px;
+    height: 70px;
+    width: 700px;
+    border-radius: 30px;
+    z-index: 1;
+    text-align: center;
+    font-size: 25px;
 }
 
-#staveLine1, #staveLine5 {
-    left: 504px;
-}
-
-#staveLine2, #staveLine6{
-      right: 120px;
-      width: 5px;
-}
-
-#staveLine3, #staveLine7{
-    right: 100px;
-}
-
-.fullScale{
-    height: 400px;
-    width: 1100px;
+#name{
+    height: 30px;
+    width: 100px;
+    top:90px;
     position: absolute;
-    top: 100px;
-    left: 400px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    left: 150px;
+    background-color: rgb(195, 130, 255);
+    z-index: 3;
 }
 
-.noteButton{
-    bottom: 80px;
+.tempiIcon{
+    height: 150px;
+    width: 150px;
     position: absolute;
-    height: 50px;
-    width: 50px;
-    background-color: aqua;
-
-
-  
- 
-    border-radius: 50px;
-    background: rgb(255, 255, 255);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    font-size: 15px;
-    cursor: pointer;
-
+    
+    top: 70px;
+    left: 20px;
+    z-index: 2;
 }
 
-/* spacing */
-#F2{
-    left: 1330px;
-}
-
-#E2{
-    left: 1230px;
-}
-
-#D2{
-    left: 1130px;
-}
-
-#C2{
-    left: 1030px;
-}
-
-#B{
-    left: 930px;
-}
-
-#A{
-    left: 830px;
-}
-
-#G{
-    left: 730px;
-}
-
-#F{
-    left: 630px;
-}
-
-#E{
-    left: 530px;
-}
-
-#D{
-    left: 430px;
-}
-
-#C{
-    left: 330px;
-}
-
-.note{
+#tempiHappy{
+    height: 600px;
+    width: 600px;
     position: absolute;
-    height: 325px;
-    right: 250px;
+    
+    top: 150px;
+    left: 150px;
 }
 
-#cNote{top: 270px;}#dNote{top:225px}#eNote{top: 190px}#fNote{top: 150px}#gNote{top: 110px}#aNote{top: 68px}#bNote{top: 270px}
-#c2Note{top: 230px}#d2Note{top: 190px}#e2Note{top: 150px}#f2Note{top: 110px}
+#congrats{
+    height: 100px;
+    width: 600px;
+    background-color: white;
+    position: absolute;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 40px;
+    
+    top: 300px;
+    right: 200px;
+}
+
+#backMenu{
+    top: 470px;
+    right: 300px;
+    width: 250px;
+    height: 70px;
+    font-size: 25px;
+    position: absolute;
+}
+
+#playAgain{
+    top: 570px;
+    right: 300px;
+    width: 250px;
+    height: 70px;
+    font-size: 25px;
+    position: absolute;
+}

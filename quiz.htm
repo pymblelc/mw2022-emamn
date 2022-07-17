@@ -11,11 +11,68 @@
 <body>
 
 <!-- Navigation bar -->
+<div id="loadingScreen">
+<img id="breakScreen" src="images/breakScreen.png"></img>
+<img id="loading" src="images/loading.gif"></img>
+</div>
+
+<div id="screen">
 <button class="buttons" id="btnBack" onclick= "location.href='./choosesomething.htm'"><-</button>
 <button class="buttons" id="btnMenu" onclick= "location.href='./index.htm'"> Main Menu </button>
 <div id="bar"></div>
 <audio id="sound" src="./audio/click3.mp3" type="audio/mpeg" preload="auto"></audio>
 <h1>Quiz branch</h1>
+
+<img id="gameover" src="images/gameover.png"></img>
+
+<div id="gameDisplay">
+<img id="display" src="images/ready.png"></img>
+<!-- <img id="display" src="images/ready.png"></img> -->
+
+<h2>What note is this?</h2>
+<button class="generate" id="btnStart"><span>Start</span></button>
+<button class="generate" id="btnNext">Next</button>
+
+<button class="options" id="answerC">Note C</button>
+<button class="options" id="answerD">Note D</button>
+<button class="options" id="answerE">Note E</button>
+<button class="options" id="answerF">Note F</button>
+<button class="options" id="answerG">Note G</button>
+<button class="options" id="answerA">Note A</button>
+<button class="options" id="answerB">Note B</button>
+<button class="options" id="answerC2">Note C2</button>
+<button class="options" id="answerD2">Note D2</button>
+<button class="options" id="answerE2">Note E2</button>
+<button class="options" id="answerF2">Note F2</button>
+
+<div class="stats" id="time">Time left: <span>03:00</span></div>
+
+
+<div class="stats" id="statCorrect">Score: <span>0</span></div>
+<div class="stats" id="statAttempts">Attempts left: <span>3</span></div>
+
+<div id="tempiGuide">
+<div id="talkBubble"><span>swittchhh</span></div>
+<img class="tempiIcon" id="tempiIncorrect" src="images/birdIncorrect.png"></img>
+<img class="tempiIcon" id="tempiCorrect" src="images/birdCorrect.png"></img>
+<div id="name"><span>Tempi</span></div>
+</div>
+
+</div>
+
+<div class="stats" id="finalScore">Final score: <span>0</span></div>
+<button class="buttons" id="tryagain" onClick="window.location.reload();">Try Again?</button> 
+
+<div id="finish">
+<img id="tempiHappy" src="images/birdHappy.png"></img>
+<div id="congrats">Congratulations! You have completed the learning branch!</div>
+<button class="buttons" id="backMenu" onclick= "location.href='./choosesomething.htm'">Back to menu</button> 
+<button class="buttons" id="playAgain" onClick="window.location.reload();">Play Again</button> 
+</div>
+
+</div>
+
+
 
 
 

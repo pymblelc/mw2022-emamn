@@ -57,7 +57,7 @@ h1{
 }
 
 #bar{
-    background-color: rgb(255, 173, 51);
+    background-color: rgb(191, 164, 255);
     top: 0px;
     position: absolute;
     height: 70px;
@@ -248,7 +248,7 @@ h1{
 #timeSignature2{
     height: 143px;
     width: 60px;
-    top: 349px;
+    top: 350px;
     left: 190px;
     position: absolute;
 }

@@ -12,7 +12,7 @@ body{
 
 h1{
     top:-10px;
-    color: rgb(52, 141, 62);
+    color: rgb(143, 98, 211);
     position: absolute;
     left: 630px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,7 +45,7 @@ h1{
 
 #next{
     right: 70px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(164, 127, 232);
     top: 670px;
     width: 100px;
 }
@@ -53,24 +53,24 @@ h1{
 
 #btnReady{
     right: 500px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(183, 127, 232);
     top: 670px;
 }
 
 #btnSkip{
     left: 100px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(172, 127, 232);
     top: 670px;
 }
 
 #btnNotready{
     right: 300px;
-    background-color: rgb(127, 232, 164);
+    background-color: rgb(179, 127, 232);
     top: 670px;
 }
 
 #bar{
-    background-color: rgb(169, 255, 143);
+    background-color: rgb(191, 164, 255);
     top: 0px;
     position: absolute;
     height: 70px;

@@ -10,7 +10,7 @@
     <body>
         <!-- Hello world -->
         <button id= "btnStart" class = "menuButton" onclick= "location.href='./choosesomething.htm'">START</button>
-        <h1> wendy <!--<br>--> sings </h1>
+        <div id="title"><h1> wendy <!--<br>--> sings </h1></div>
         <img id="bird" src="images/hello.png" >
 
         <div>
@@ -26,14 +26,20 @@
 
 
         <div id="accountInputs">
-        <input id= user>Username:</input>
-        <input type= "password" id= pass >Password:</input>
-        <input id= email >Email:</input>
-        <input input type = checkbox id= checkbox>Hearing Impairment?</input>
 
 
+        <div id="userPlace"><input class ="accounts" id= "user">Username:</input></div>
+        <div id="emailPlace"><input class="accounts" id= email >Email:</input></div>
+        <div id="passPlace"><input class="accounts" type= "password" id= pass >Password:</input></div>
+        <div id="checkPlace"><input class="accounts" input type = checkbox id= checkbox>Hearing Impairment?</input></div>
+
+        <h4 id="notFound">Account not found. Please check login details.</h4>
         <button id="login">Login</button>
         <button id="signup">Sign up</button>
+
+
+
+
         </div>
 
     <script type="text/javascript" src="js/menu.js"></script>
