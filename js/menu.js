@@ -53,10 +53,12 @@ function checkAccounts(url,apikey, username, password){
             console.log("found it :)")
             login = true;
             checkLoggedin();
+            $('#notFound').hide();
         }
-        else(
+        if(found === false){
             console.log("Account not found, check login details...")
-        )
+            $('#notFound').show();
+        }
     });  
 }
 

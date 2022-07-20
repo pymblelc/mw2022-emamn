@@ -7,9 +7,9 @@ body{
     background-repeat: no-repeat;
 }
 
-h4{ /* this is off with console */
+#notFound{ /* this is off with console */
     color: red;
-    top: 190px;
+    top: 140px;
     position: absolute;
 }
 

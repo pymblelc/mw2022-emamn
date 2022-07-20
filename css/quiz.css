@@ -279,7 +279,7 @@ h2{
 
 #backMenu{
     top: 470px;
-    right: 300px;
+    left: 750px;
     width: 250px;
     height: 70px;
     font-size: 25px;
@@ -288,9 +288,15 @@ h2{
 
 #playAgain{
     top: 570px;
-    right: 300px;
+    left: 750px;
     width: 250px;
     height: 70px;
     font-size: 25px;
+    position: absolute;
+}
+
+#totalScore{
+    left: 1050px;
+    top: 490px;
     position: absolute;
 }

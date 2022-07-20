@@ -1,5 +1,8 @@
 // -- store some username
 $('#notFound').hide();
+$('#found').hide();
+$('#wait').hide();
+
 $("#displayUser").hide();
 
 var apikey = '61a3fa8734abfc7f972efc04';
@@ -50,10 +53,17 @@ function checkAccounts(url,apikey, username, password, email){
             //login -------
             console.log("this account already exists");
 
+            $('#found').show();
+            $('#notFound').hide();
+
             //css display welcome (store input of username)
         }
         if(found === false){
             console.log("this account is free!");
+
+            $('#found').hide();
+            $('#wait').show();
+
             signup();
 
             createAccount = true;
@@ -61,6 +71,14 @@ function checkAccounts(url,apikey, username, password, email){
     });  
 }
 
+
+
+
+
+
+
+
+//add thing
 function signup(){
     var tempItem = {
         Username: $('#user').val(),
@@ -106,7 +124,11 @@ function addAccount(item, url, apikey){
         }
         
         $.ajax(settings).done(function (response) {
-            console.log('Item add');
+            console.log('Item added');
+            $('#notFound').show();
+
+            $('#wait').hide();
+
             //clear the input
             $('#user').val('');
             $('#pass').val('');

@@ -7,7 +7,7 @@ body{
     background-repeat: no-repeat;
 }
 
-h4{ /* this is off with console */
+#found, #notFound, #wait { /* this is off with console */
     color: red;
     top: 190px;
     position: absolute;
@@ -41,17 +41,6 @@ h4{ /* this is off with console */
 #passPlace{width: 10px;}
 #emailPlace{width: 10px;}
 
-#checkPlace{
-
-}
-
-#login{
-
-}
-
-#signup{
-
-}
 
 .menuButton{
     /* background-color: rgb(145, 190, 226);
@@ -93,7 +82,6 @@ h4{ /* this is off with console */
     width: 1000px;
     left: 0px;
     right: 0px;
-
 }
 
 

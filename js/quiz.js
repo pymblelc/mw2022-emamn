@@ -1,3 +1,100 @@
+//score DB
+
+var apikey = '61a3fa8734abfc7f972efc04';
+var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
+
+function getScore(){
+    var tempItem = {correctAnswer}
+
+    addScore(tempItem, urlScores, apikey, );
+}
+
+function addScore(item, url, apikey){
+    var settings = { // Get existing users reqeust for
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": apikey,
+            "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(item)
+    }
+    
+    $.ajax(settings).done(function (response) {
+        // if response didn't find exisitng user, then create
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": url,
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json",
+                "x-apikey": apikey,
+                "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": JSON.stringify(item)
+        }
+        
+        $.ajax(settings).done(function (response) {
+            console.log('score added');
+            console.log(response)
+        });
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $('#screen').hide();
 
@@ -9,6 +106,9 @@ $('.options').hide();
 $('#btnNext').hide();
 $('#gameover').hide();
 $('#tryagain').hide();
+
+// $('#totalScore').hide();
+
 $('.stats').hide();
 $('h2').hide();
 $('.tempiIcon').hide();
@@ -20,7 +120,6 @@ $('#name').hide();
 
 var correctAnswer = 0;
 var attempts = 3;
-
 var arrNoteq = [
     'images/C.png',
     'images/D.png',
@@ -34,7 +133,6 @@ var arrNoteq = [
     'images/E2.png',
     'images/F2.png'
     ];
-
 //disable button on attempt click?
 
 //random variable to detect
@@ -42,6 +140,13 @@ var random = Math.floor(Math.random() * arrNoteq.length);
     
 $('#btnStart').click(function(){
     clickSound();
+
+    jQuery(function ($) {
+        var oneMinute = 1 //60
+            display = $('#time span');
+        startTimer(oneMinute, display);
+    });
+
     for(var i = 0; i < arrNoteq.length; i++){
         // var random = Math.floor(Math.random() * arrNoteq.length);   brought up 
             document.getElementById('display').src = arrNoteq[random];
@@ -233,7 +338,6 @@ function incorrect(){
     statDisplay();
 
 
-
     //ending
     if(attempts === 1){
         $('#statAttempts').css("color", "red"); //uh oh only 1 left
@@ -274,10 +378,14 @@ function startTimer(duration, display) {
 
         display.text(minutes + ":" + seconds);
 
-        if (--timer < 0) {
+        if (--timer == 0) {
+            //final finish screen (track score)
             $('#gameDisplay').hide();
             $('#finish').show();
+            $("#totalScore").show();
+            $("#totalScore span").text(correctAnswer);
 
+            getScore();
         }
         // if (--timer < 10) {
         //     $('#time').css("color", "red"); //uh oh only 1 left
@@ -285,10 +393,6 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-jQuery(function ($) {
-    var oneMinute = 60
-        display = $('#time span');
-    startTimer(oneMinute, display);
-});
+
 
 
