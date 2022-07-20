@@ -208,15 +208,12 @@ function correct(){
     statDisplay();
 
     //ending
-    if(correctAnswer === 10){
-        console.log('passed');
+    // if(correctAnswer === 10){
 
+    //     // $('#gameDisplay').hide();
+    //     // $('#finish').show();
 
-        $('#gameDisplay').hide();
-        $('#finish').show();
-        
-
-    }
+    // }
 }
 
 
@@ -250,6 +247,7 @@ function incorrect(){
 function statDisplay(){
     $("#statCorrect span").text(correctAnswer);
     $("#statAttempts span").text(attempts);
+
 }
 function clickSound(){
     sound.load();
@@ -265,9 +263,6 @@ function gameover(){
     $('#finalScore').show();
 }
 
-
-
-
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -280,7 +275,9 @@ function startTimer(duration, display) {
         display.text(minutes + ":" + seconds);
 
         if (--timer < 0) {
-            gameover();
+            $('#gameDisplay').hide();
+            $('#finish').show();
+
         }
         // if (--timer < 10) {
         //     $('#time').css("color", "red"); //uh oh only 1 left
@@ -289,7 +286,9 @@ function startTimer(duration, display) {
 }
 
 jQuery(function ($) {
-    var fiveMinutes = 60 * 3,
+    var oneMinute = 60
         display = $('#time span');
-    startTimer(fiveMinutes, display);
+    startTimer(oneMinute, display);
 });
+
+

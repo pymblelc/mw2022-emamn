@@ -1,3 +1,170 @@
+//array 
+
+var arrAnimals = ['Blob Fish', 'Australian Cobberdog', 'Naked Mole Rat', 'Arabian Sand Boa', 'Axolotl', 'Siamese cat', 'Aeoiwje']; //capital only ------
+
+function bubbleSort(arrayToSort){
+    var swapped = true;
+    var pass = 0;
+
+    while(swapped == true){
+        swapped = false;
+        let comparison = 0;
+        let length = arrayToSort.length;
+        
+        while(comparison<length - pass){
+
+            if(arrayToSort[comparison] > arrayToSort[comparison+1]){
+                
+                var store = arrayToSort[comparison+1];
+                arrayToSort[comparison+1] = arrayToSort[comparison];
+                arrayToSort[comparison] = store;
+                swapped = true;
+            }
+            comparison++;
+        }
+        pass++;
+
+}
+console.log(arrayToSort);
+}
+
+bubbleSort(arrAnimals);
+var arrNotesSorted = [ 
+{name:'Note A',value:'A'}, 
+{name:'Note B',value:'B'}, 
+{name:'Note C',value:'C'}, 
+{name:'Note D',value:'D'}, 
+{name:'Note E',value:'E'}, 
+{name:'Note F',value:'F'},
+{name:'Note G',value:'G'}]; // G not working
+
+//global
+var found = false;
+let index;
+
+
+//intrinsic naming
+function binarySearch(arrayToSearch, searchTerm){
+//Function called at the bottom
+    console.log('I just did a binary search on' + ' "' + $('#searchBox').val() + '"');
+    //set variables
+    var low = 0;
+    found = false;
+    var high = arrayToSearch.length-1;
+
+//loop
+    while(high >= low && found == false){
+        //finding the middle (int used to make sure its rounded down)
+        var middle = parseInt((low+high)/2);
+
+        //smaller than half
+        if(searchTerm < arrayToSearch[middle].name){ //searchTerm.toLowerCase()
+        // if ({whatever search term was defined as} < {array/parameter[calling the number in array]})
+            //console.log('smaller that half');
+            //getting rid of the checked middle
+            high = middle-1;
+        }
+        //half
+        else if(searchTerm == arrayToSearch[middle].name){
+            index = middle;
+            found = true;
+        }
+        //larger than half
+        else{
+            //console.log('larger than half');
+            low = middle+1;
+        }
+
+    }
+
+    if (found == true){
+        console.log('found it')
+        
+    }
+    else{
+        console.log('not found')
+        $('#insertimage').hide();
+    }
+}
+//calling on button press
+
+
+
+$('#searchButton').click(function(){
+    $('.image').hide();
+
+    binarySearch(arrNotesSorted, $('#searchBox').val()); 
+    let note = $('#searchBox').val();
+    if (found == true){ //found is global
+        console.log(`${note} found`); // = note + "found"
+        //let path = 'A';
+        console.log(`${arrNotesSorted[index].value} found`);
+        $('#searchBox').val('');
+        //let imgdiv = document.getElementById("insertimage");
+        //imgdiv.innerhtml =`<img src = 'images/${arrNotesSorted[index].value}.png'>`;
+        $('body').append(`<div id='insertimage' ><img class="image" src = 'images/${arrNotesSorted[index].value}.png'></div>`);
+
+    }
+    else{
+        console.log('button triggered not found')
+        //$('#insertimage').hide();
+        
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $('.birdGuide').hide();
 $('.noteButton').hide();
@@ -187,6 +354,8 @@ $('#btnNotready').click(function(){
     $('#birdTalk span').text('Choose what you would like to revise!');
     $('#birdShock').hide(); //skipped through guide
     $('#birdHappy').hide(); //gone through guide
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! INPUT FOR SEARCH
 
     $('#birdExplain2').show();
     // $('#btnReady').hide();

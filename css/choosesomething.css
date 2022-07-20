@@ -86,7 +86,7 @@ h1{ /* this is off with console */
 #playText{
     text-align: right;
     
-    right: 345px;
+    left: 940px;
     position: relative; /* infront */
     position: fixed;
     

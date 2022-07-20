@@ -9,41 +9,26 @@
     </head>
     <body>
         <!-- Hello world -->
-        <button id= "btnStart" class = "menuButton" onclick= "location.href='./choosesomething.htm'">START</button>
         <div id="title"><h1> wendy <!--<br>--> sings </h1></div>
+        <button id="back" onclick= "location.href='./index.htm'">Go Back</button>
         <img id="bird" src="images/hello.png" >
-
-        
-        <div id="displayUser">Welcome <span>username</span></div> 
-
-        <div>
-            
-            <audio id = "sound">
-                <source src = "./audio/bird.mp3" type="audio/mpeg">
-            </audio>
-
-            <button class= "menuButton" id="playButton" onclick="playSound()">TEST VOLUME &#9658</button>
-             <!-- <button id="Stop" onclick ="stop()">Stop &#9611</button> -->
-
-        </div>
-
-
         <div id="accountInputs">
 
 
             Username:<div id="userPlace"><input class ="accounts" id= "user"></input></div>
+            Email:<div id="emailPlace"><input class="accounts" id= email ></input></div>
             Password:<div id="passPlace"><input class="accounts" type= "password" id= pass ></input></div>
+        <div id="checkPlace"><input class="accounts" input type = checkbox id= checkbox>Hearing Impairment?</input></div>
 
-        <h4 id="notFound">Account not found. Please check login details.</h4>
-        <button id="login">Login</button>
-        <button id="signup" onclick= "location.href='./signup.htm'">Sign up</button>
+    
+        <button id="signup">Create Account</button>
 
 
 
 
         </div>
 
-    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
     </body>
 
 </html>

@@ -306,3 +306,15 @@ h1{
     bottom: 280px;
     left: 320px;
 }
+
+#search{
+    position:absolute;
+    top: 100px;
+}
+
+.image{
+    position: absolute;
+    height: 150px;
+    top: 140px;
+
+}
