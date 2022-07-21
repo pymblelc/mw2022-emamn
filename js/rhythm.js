@@ -1,4 +1,3 @@
-
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
 

@@ -308,3 +308,26 @@ h2{
     z-index: 7;
     position: absolute;
 }
+
+.options{
+    border-radius: 50px;
+    height: 40px;
+    width: 90px;
+    background: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#btnStart{
+    border-radius: 50px;
+    height: 60px;
+    width: 150px;
+    left: 650px;
+    background: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
