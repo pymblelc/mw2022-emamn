@@ -1,35 +1,87 @@
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
 
-function getScore(){
-    var Item = {
-        //add initials input for leaderboard 
+var arrScores = [];
 
-        Name: $('#nameInput').val(),
-        score: score
-    }
-    addScore(Item, urlScores, apikey,);
+function submitScore() {
+  var Item = {
+    //add initials input for leaderboard 
+    Name: $('#nameInput').val(),
+    score: score
+  }
+  addScore(Item, urlScores, apikey,);
 }
 
-function addScore(item, url, apikey){
-    var settings = { // Get existing users reqeust for
-        "async": true,
-        "crossDomain": true,
-        "url": url,
-        "method": "POST",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": apikey,
-            "cache-control": "no-cache"
-        },
-        "processData": false,
-        "data": JSON.stringify(item)
-    }
-    
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
+function addScore(item, url, apikey) {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": url,
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": apikey,
+      "cache-control": "no-cache"
+    },
+    "processData": false,
+    "data": JSON.stringify(item)
+  }
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }
+
+function getScore() {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlScores,
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": apikey,
+      "cache-control": "no-cache"
+    }
+  }
+
+  $.ajax(settings).done(function (response) {
+    function SelectionSort(arrayToSort) {
+
+      var pass = 0;
+
+      while (pass < arrayToSort.length) {
+        let count = pass + 1;
+        let min = pass;
+
+        while (count < arrayToSort.length) {
+          if (arrayToSort[count].score > arrayToSort[min].score) {
+            min = count;
+          }
+          count++;
+        }
+
+        var store = arrayToSort[min];
+        arrayToSort[min] = arrayToSort[pass];
+        arrayToSort[pass] = store;
+        pass++;
+
+      }
+    }
+
+    SelectionSort(response);
+    console.log(response); 
+    //display the sorted array onto leaderboard
+    //display only top 10 scores
+  });
+}
+
+getScore(); //sort the stuff??
+
+
+
+
+
 
 $('#time').hide();
 $('#combo').hide();
@@ -58,10 +110,10 @@ $('#loadingScreen').hide();
 const button = document.querySelector('#btnStart')
 button.disabled = false;
 
-$('#btnStart').click(function(){ //-------------------------------------------------------------------------------------
+$('#btnStart').click(function () { //-------------------------------------------------------------------------------------
   // startTimer(oneMinute, display);
 
-  
+
   var oneMinute = 10 //9
   display = $('#time span');
   startTimer(oneMinute, display);
@@ -72,13 +124,13 @@ $('#btnStart').click(function(){ //---------------------------------------------
   $('#score').show();
   $('#btnStart').hide();
   console.log('SONG START'); // ---------------------------------------------- play audio and pray it doesn't lag
-// display perfect for the user, add the audio, make so when they hit perfect it adds then once = total amount of beats I want
-// from the song, finish the game and complete tempo.
+  // display perfect for the user, add the audio, make so when they hit perfect it adds then once = total amount of beats I want
+  // from the song, finish the game and complete tempo.
 
 
-// var oneMinute = 10 //9
-// display = $('#time span');
-// startTimer(oneMinute, display);
+  // var oneMinute = 10 //9
+  // display = $('#time span');
+  // startTimer(oneMinute, display);
 
   moveNotes1();
   button.disabled = true
@@ -92,35 +144,35 @@ $('#btnStart').click(function(){ //---------------------------------------------
   //$("#note1").animate({top: '860px'}, 7000); 
 });
 
-class notes{
-  constructor(name,colour,top, left){
+class notes {
+  constructor(name, colour, top, left) {
     //attribute
-      this.name = name;
-      this._colour = colour;
-      this.top = top;
-      this.left = left;
-      this.id = '#' + this.name
+    this.name = name;
+    this._colour = colour;
+    this.top = top;
+    this.left = left;
+    this.id = '#' + this.name
   }
-  create(){ //--------------------------------------------------------------------------------
-      this.html = '<div id="' + this.name + '" class="notes">' + this.name + ' </div>';
-      $('body').append(this.html);
-      var className = '#' + this.name
-      $(className).animate({
-        top: this.top,
-        left: this.left
-      }, 1000, function() {
-      });
-        console.log('note created');
+  create() { //--------------------------------------------------------------------------------
+    this.html = '<div id="' + this.name + '" class="notes">' + this.name + ' </div>';
+    $('body').append(this.html);
+    var className = '#' + this.name
+    $(className).animate({
+      top: this.top,
+      left: this.left
+    }, 1000, function () {
+    });
+    console.log('note created');
   }
 
-  create(noteType){
-    if(noteType == undefined){
+  create(noteType) {
+    if (noteType == undefined) {
       noteType = '';
     }
-      var html = '<div id="' + this.name + '" class="notes ' + noteType + '">' + this.name + ' </div>';
-      $('body').append(html);
-      var className = '#' + this.name
-      }
+    var html = '<div id="' + this.name + '" class="notes ' + noteType + '">' + this.name + ' </div>';
+    $('body').append(html);
+    var className = '#' + this.name
+  }
 }
 
 
@@ -134,99 +186,99 @@ function getPositions(box) {
   var pos = $box.position();
   var width = $box.width();
   var height = $box.height();
-  return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
+  return [[pos.left, pos.left + width], [pos.top, pos.top + height]];
 }
-        
+
 function comparePositions(p1, p2) {
   var x1 = p1[0] < p2[0] ? p1 : p2;
   var x2 = p1[0] < p2[0] ? p2 : p1;
   return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
 }
- 
-function checkMultipleCollisions(){
-  for(var i = 0; i < arrTargets.length; i++){
-    checkCollisions(arrTargets[i],'#n1');
+
+function checkMultipleCollisions() {
+  for (var i = 0; i < arrTargets.length; i++) {
+    checkCollisions(arrTargets[i], '#n1');
   }
 }
- 
-function checkCollisions(arrTargets, theCharacter){
+
+function checkCollisions(arrTargets, theCharacter) {
 
   var box = $(arrTargets)[0];
   var pos = getPositions(box);
   var chr = $(theCharacter);
   var pos2 = getPositions(chr);
   var horizontalMatch = comparePositions(pos[0], pos2[0]);
-  var verticalMatch = comparePositions(pos[1], pos2[1]);            
+  var verticalMatch = comparePositions(pos[1], pos2[1]);
   var match = horizontalMatch && verticalMatch;
-  if (match) { 
+  if (match) {
     var itemName = $(box).attr('id');
     itemHit = "#" + itemName;
-    switch (itemName){
+    switch (itemName) {
       case 'perfect':
 
 
-          $('#perfect').css("background-color", "rgb(119, 255, 187)");
-          setTimeout(function() { $('#perfect').css("background-color", "rgb(70, 85, 225)"); }, 40);
+        $('#perfect').css("background-color", "rgb(119, 255, 187)");
+        setTimeout(function () { $('#perfect').css("background-color", "rgb(70, 85, 225)"); }, 40);
 
-          $('#perfectmsg').show();
-          setTimeout(function() { $('#perfectmsg').hide(); }, 800);
+        $('#perfectmsg').show();
+        setTimeout(function () { $('#perfectmsg').hide(); }, 800);
 
-          $('#tempiHit').show();
-          $('#tempiNeutral').hide();
+        $('#tempiHit').show();
+        $('#tempiNeutral').hide();
 
-          setTimeout(function() { $('#tempiNeutral').show(); }, 100);
-          setTimeout(function() { $('#tempiHit').hide(); }, 100);
-          
-          // doBounce($('#tempiHit'), 1, '30px', 300);
+        setTimeout(function () { $('#tempiNeutral').show(); }, 100);
+        setTimeout(function () { $('#tempiHit').hide(); }, 100);
 
-          if(combo === 4){ //1 less - Middle streak
-            $('#combo').css("color", "rgb(92, 86, 255)");
-          }
-          
+        // doBounce($('#tempiHit'), 1, '30px', 300);
 
-          if(combo === 9){ //1 less - Superb streak
-            $('#combo').css("color", "rgb(225, 11, 233)");
-          }
-
-          console.log('PERFECT')
-
-          $('#talkBubble span').text('PERFECT!'); 
+        if (combo === 4) { //1 less - Middle streak
+          $('#combo').css("color", "rgb(92, 86, 255)");
+        }
 
 
+        if (combo === 9) { //1 less - Superb streak
+          $('#combo').css("color", "rgb(225, 11, 233)");
+        }
+
+        console.log('PERFECT')
+
+        $('#talkBubble span').text('PERFECT!');
 
 
-          combo = combo + 1
-          console.log(combo);
-          $('#combo').show();
-
-          
-
-          score = score + 10
-          statDisplay();
-
-          if(score === 100 /*can change*/){
-            console.log('song complete!')
-          }
-
-          $("#n1")[0].style.top = 0 
-          //so this doesn't interrupt the movement and allows the note to account 'perfect' but not 'miss'
 
 
-          //WHEN MISS COMBO = 0 -----------
+        combo = combo + 1
+        console.log(combo);
+        $('#combo').show();
 
-          //clearInterval(myInterval);
+
+
+        score = score + 10
+        statDisplay();
+
+        if (score === 100 /*can change*/) {
+          console.log('song complete!')
+        }
+
+        $("#n1")[0].style.top = 0
+      //so this doesn't interrupt the movement and allows the note to account 'perfect' but not 'miss'
+
+
+      //WHEN MISS COMBO = 0 -----------
+
+      //clearInterval(myInterval);
 
       //     break;
       // case 'pass':
       //     $('#n1').hide();
       //     console.log('passed');
-          
+
     }
   }
-  }
+}
 
 //instances
-var note = new notes(id="n1");
+var note = new notes(id = "n1");
 note.create();
 
 
@@ -237,8 +289,8 @@ note.create();
 // //animation function 
 //enemy 1
 var noteHit = false;
-function moveNotes1(){ //clear interval moveNotes1
-  $('#n1').animate({"top": "+=5", }, 0, "linear");// checkPass);
+function moveNotes1() { //clear interval moveNotes1
+  $('#n1').animate({ "top": "+=5", }, 0, "linear");// checkPass);
   //console.log($("#n1")[0].style.top); ----------------------------------- coords
 
   if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 500) {
@@ -251,7 +303,7 @@ function moveNotes1(){ //clear interval moveNotes1
 
 
     $('#miss').show();
-    setTimeout(function() { $('#miss').hide(); }, 800);
+    setTimeout(function () { $('#miss').hide(); }, 800);
 
     // doBounce($('#tempiNeutral'), 1, '30px', 300);
 
@@ -259,10 +311,10 @@ function moveNotes1(){ //clear interval moveNotes1
 
     //if there is a combo to begin with
 
-    if(combo > 0){
+    if (combo > 0) {
       $('#reset').show();
       $('#combo').css("color", "black");
-      setTimeout(function() { $('#reset').hide(); }, 800);
+      setTimeout(function () { $('#reset').hide(); }, 800);
     }
 
 
@@ -277,11 +329,11 @@ function moveNotes1(){ //clear interval moveNotes1
 
 
 
-    
-    
+
+
   }
-  
-//For a sound accompanied by a beat, the action of the user should not effect the note movement
+
+  //For a sound accompanied by a beat, the action of the user should not effect the note movement
 
   // $('body').keydown(function(event){
   //   if(event.which == 32){
@@ -294,7 +346,7 @@ function moveNotes1(){ //clear interval moveNotes1
 }
 
 if (!miss) {
-    console.log('hit');
+  console.log('hit');
 }
 
 // if(notePerfect){
@@ -307,31 +359,31 @@ if (!miss) {
 // //else if notehit then miss
 // }
 
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keydown", function (e) {
   if (e.key == " ") {
     noteHit = true;
   }
 });
 
 // um 
-function checkPass(){
-  while(stopped === false){
-    if(("y: "+ rect.y) > 500){
+function checkPass() {
+  while (stopped === false) {
+    if (("y: " + rect.y) > 500) {
       $('#n1').hide();
       stopped = true;
     }
   }
 }
 
-$('body').keydown(function(event){
+$('body').keydown(function (event) {
   //space
-  if(event.which == 32){ 
-      checkMultipleCollisions();
+  if (event.which == 32) {
+    checkMultipleCollisions();
   }
 });
 
 //miss function
-function miss(){
+function miss() {
   //GET A SCORE OF 200 TO COMPLETE
 
   //RESET THE COMBO
@@ -346,7 +398,7 @@ function miss(){
 }
 
 //all stat updates
-function statDisplay(){
+function statDisplay() {
   $("#combo span").text(combo);
   $("#score span").text(score);
 }
@@ -355,31 +407,31 @@ function statDisplay(){
 
 //animation function
 function doBounce(element, times, distance, speed) {
-  for(var i = 0; i < times; i++) {
-      element.animate({marginTop: '-='+distance}, speed)
-          .animate({marginTop: '+='+distance}, speed);
-  }        
+  for (var i = 0; i < times; i++) {
+    element.animate({ marginTop: '-=' + distance }, speed)
+      .animate({ marginTop: '+=' + distance }, speed);
+  }
 }
 
 function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
   setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-      display.text(minutes + ":" + seconds);
+    display.text(minutes + ":" + seconds);
 
-      if (--timer == -1) {
-        $("#finalScore").show();
-        $("#game").hide();
-        $("#n1").hide();
-        $("#finalScore span").text(score);
+    if (--timer == -1) {
+      $("#finalScore").show();
+      $("#game").hide();
+      $("#n1").hide();
+      $("#finalScore span").text(score);
 
-        getScore();
-      }
+      submitScore();
+    }
   }, 1000);
 }
 

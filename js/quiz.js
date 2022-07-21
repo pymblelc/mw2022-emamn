@@ -2,7 +2,7 @@
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
 
-function getScore(){
+function submitScore(){
     var Item = {
         //add initials input for leaderboard 
 
@@ -325,7 +325,7 @@ function startTimer(duration, display) {
             $("#totalScore").show();
             $("#totalScore span").text(correctAnswer);
 
-            getScore();
+            submitScore();
         }
         // if (--timer < 10) {
         //     $('#time').css("color", "red"); //uh oh only 1 left
