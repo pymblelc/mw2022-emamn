@@ -1,12 +1,15 @@
 //score DB
-
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
 
 function getScore(){
-    var tempItem = {correctAnswer}
+    var Item = {
+        //add initials input for leaderboard 
 
-    addScore(tempItem, urlScores, apikey, );
+        // name: $('#nameInput').val(),
+        score: correctAnswer
+    }
+    addScore(Item, urlScores, apikey, );
 }
 
 function addScore(item, url, apikey){
@@ -25,76 +28,9 @@ function addScore(item, url, apikey){
     }
     
     $.ajax(settings).done(function (response) {
-        // if response didn't find exisitng user, then create
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": url,
-            "method": "POST",
-            "headers": {
-                "content-type": "application/json",
-                "x-apikey": apikey,
-                "cache-control": "no-cache"
-            },
-            "processData": false,
-            "data": JSON.stringify(item)
-        }
-        
-        $.ajax(settings).done(function (response) {
-            console.log('score added');
-            console.log(response)
-        });
+        console.log(response);
     });
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $('#screen').hide();
 
@@ -107,7 +43,7 @@ $('#btnNext').hide();
 $('#gameover').hide();
 $('#tryagain').hide();
 
-// $('#totalScore').hide();
+$('#totalScore').hide();
 
 $('.stats').hide();
 $('h2').hide();
@@ -119,6 +55,7 @@ $('#name').hide();
 // $('#gameDisplay').hide();
 
 var correctAnswer = 0;
+
 var attempts = 3;
 var arrNoteq = [
     'images/C.png',
@@ -140,12 +77,6 @@ var random = Math.floor(Math.random() * arrNoteq.length);
     
 $('#btnStart').click(function(){
     clickSound();
-
-    jQuery(function ($) {
-        var oneMinute = 1 //60
-            display = $('#time span');
-        startTimer(oneMinute, display);
-    });
 
     for(var i = 0; i < arrNoteq.length; i++){
         // var random = Math.floor(Math.random() * arrNoteq.length);   brought up 
@@ -392,6 +323,12 @@ function startTimer(duration, display) {
         // }
     }, 1000);
 }
+
+jQuery(function ($) {
+    var oneMinute = 60 //60
+        display = $('#time span');
+        startTimer(oneMinute, display);
+});
 
 
 

@@ -297,6 +297,12 @@ h2{
 
 #totalScore{
     left: 1050px;
-    top: 490px;
+    top: 480px;
+    font-size: 30px;
+    position: absolute;
+}
+
+#input{
+    top: 500px;
     position: absolute;
 }

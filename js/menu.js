@@ -5,7 +5,11 @@ $('#displayUser').hide();
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlAccounts = 'https://enirui-a66e.restdb.io/rest/accounts';
 var login = false;
-var user;
+var user = [];
+
+var arrLogin = [];
+
+// var arrAccounts;
 
 $('#btnStart').hide();
 $('#playButton').hide();
@@ -36,16 +40,24 @@ function checkAccounts(url,apikey, username, password){
     }
     $.ajax(settings).done(function (response) {
         // console.log(response);
-        $('#user').val('');
+       $('#user').val('');
         $('#pass').val('');
-        $('#email').val('');
+        // $('#email').val('');
         var found = false;
+
+
         for(var i=0; i<response.length; i++){
             if(username == response[i].Username && password == response[i].Password)
             {
                 console.log(response[i].Username);
+            
+
                 user = response[i]
+
                 found = true;
+
+                // arrLogin = response
+
             }
         }
         if(found === true ){
@@ -63,7 +75,6 @@ function checkAccounts(url,apikey, username, password){
 }
 
 //clear input once checked and account exists *
-
 
 function checkLoggedin(){
     if(login === true){

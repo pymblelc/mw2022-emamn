@@ -1,16 +1,44 @@
+$('#combo').hide();
+$('#score').hide();
+$('#reset').hide();
+
+$("#finalScore").hide();
+
+$('.messages').hide();
+
+$('.tempi').hide();
+
 var stopped = false;
 let notePerfect = false;
-let miss = true;
-combo = 0;
+
+var perfect;
+
+//score and tracking progress
+var combo = 0;
+var score = 0;
+
+$('#loadingScreen').hide();
 
 const button = document.querySelector('#btnStart')
 button.disabled = false;
 
 $('#btnStart').click(function(){
-  console.log('SONG START');
+
+
+  $('#tempiNeutral').show();
+  $('#score').show();
+  $('#btnStart').hide();
+  console.log('SONG START'); // ---------------------------------------------- play audio and pray it doesn't lag
+// display perfect for the user, add the audio, make so when they hit perfect it adds then once = total amount of beats I want
+// from the song, finish the game and complete tempo.
+
+
   //display combo
-
-
+  jQuery(function ($) {
+    var oneMinute = 2 //60
+        display = $('#time span');
+    startTimer(oneMinute, display);
+  });
 
   moveNotes1();
   button.disabled = true
@@ -24,7 +52,6 @@ $('#btnStart').click(function(){
   //$("#note1").animate({top: '860px'}, 7000); 
 });
 
-
 class notes{
   constructor(name,colour,top, left){
     //attribute
@@ -35,7 +62,7 @@ class notes{
       this.id = '#' + this.name
   }
   create(){ //--------------------------------------------------------------------------------
-      this.html = '<div id="' + this.name + '" class="notes">' + this.name + ' </div>';
+      this.html = '<div class="game"' + '<div id="' + this.name + '" class="notes">' + this.name + ' </div>' + '</div>';
       $('body').append(this.html);
       var className = '#' + this.name
       $(className).animate({
@@ -96,13 +123,54 @@ function checkCollisions(arrTargets, theCharacter){
     itemHit = "#" + itemName;
     switch (itemName){
       case 'perfect':
-          $('#perfect').css("background-color", "red");
+
+
+          $('#perfect').css("background-color", "rgb(119, 255, 187)");
+          setTimeout(function() { $('#perfect').css("background-color", "rgb(70, 85, 225)"); }, 40);
+
+          $('#perfectmsg').show();
+          setTimeout(function() { $('#perfectmsg').hide(); }, 800);
+
+          $('#tempiHit').show();
+          $('#tempiNeutral').hide();
+
+          setTimeout(function() { $('#tempiNeutral').show(); }, 100);
+          setTimeout(function() { $('#tempiHit').hide(); }, 100);
+          
+          // doBounce($('#tempiHit'), 1, '30px', 300);
+
+          if(combo === 4){ //1 less - Middle streak
+            $('#combo').css("color", "rgb(92, 86, 255)");
+          }
+          
+
+          if(combo === 9){ //1 less - Superb streak
+            $('#combo').css("color", "rgb(225, 11, 233)");
+          }
+
           console.log('PERFECT')
-          notePerfect = true;
-          miss = false;
+
+          $('#talkBubble span').text('PERFECT!'); 
+
+
+
 
           combo = combo + 1
-          $("#combo").text(combo);
+          console.log(combo);
+          $('#combo').show();
+
+          
+
+          score = score + 10
+          statDisplay();
+
+          if(score === 100 /*can change*/){
+            console.log('song complete!')
+          }
+
+          $("#n1")[0].style.top = 0 
+          //so this doesn't interrupt the movement and allows the note to account 'perfect' but not 'miss'
+
 
           //WHEN MISS COMBO = 0 -----------
 
@@ -131,28 +199,56 @@ note.create();
 var noteHit = false;
 function moveNotes1(){ //clear interval moveNotes1
   $('#n1').animate({"top": "+=5", }, 0, "linear");// checkPass);
-  console.log($("#n1")[0].style.top);
+  //console.log($("#n1")[0].style.top); ----------------------------------- coords
 
-  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 780) {
-    $("#n1")[0].style.top = 0;
-    //$('#n1').show();
-    //return;
-  }
-  
+  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 500) {
+    $("#n1")[0].style.top = 0
+    console.log('miss');
+    $('#combo').hide();
 
-  $('body').keydown(function(event){
-    //move down
-    if(event.which == 32){
-      $("#n1")[0].style.top = 0;
+    $('#tempiHit').hide();
+    $('#tempiNeutral').show();
+
+
+    $('#miss').show();
+    setTimeout(function() { $('#miss').hide(); }, 800);
+
+    // doBounce($('#tempiNeutral'), 1, '30px', 300);
+
+
+
+    //if there is a combo to begin with
+
+    if(combo > 0){
+      $('#reset').show();
+      $('#combo').css("color", "black");
+      setTimeout(function() { $('#reset').hide(); }, 800);
     }
-  });
-  
+
+
+    combo = 0;
+    statDisplay();
+
+
+    // miss();
+    console.log(combo);
+
+
+
+
 
     
-  // if(noteHit){
-  //   $('#n1').hide();
-  //   console.log('miss');
-  // }
+    
+  }
+  
+//For a sound accompanied by a beat, the action of the user should not effect the note movement
+
+  // $('body').keydown(function(event){
+  //   if(event.which == 32){
+  //     $("#n1")[0].style.top = 0;
+  //     //console.log('miss from key');
+  //   }
+  // });
 
   requestAnimationFrame(moveNotes1);
 }
@@ -177,7 +273,7 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
-// um ***********************
+// um 
 function checkPass(){
   while(stopped === false){
     if(("y: "+ rect.y) > 500){
@@ -187,7 +283,6 @@ function checkPass(){
   }
 }
 
-
 $('body').keydown(function(event){
   //space
   if(event.which == 32){ 
@@ -195,26 +290,54 @@ $('body').keydown(function(event){
   }
 });
 
+//miss function
+function miss(){
+  //GET A SCORE OF 200 TO COMPLETE
+
+  //RESET THE COMBO
+  combo == 0;
+
+  // statDisplay();
 
 
-//trying to get the coordinate of this y
-/*
-- determine y values,
-constant running function with an if statement declaring if the y value is greater than screen then stop function
-or while function **
+  console.log('COMBO RESET');
 
-when player hits the keyboard stop and assess the y value, if it is within y values 100 and 150 (height of allowance space) console.log perfect..
-etc for other values
----------------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-
-/*
-While loop:
-while enemy is less than 100 y (eg) and greater == false..
-  keep checking the position (function);
-  if the enemy position is greater than 100 y
-    greater == true;
-  }
+  $('#talkBubble span').text('MISS');
 }
-*/
+
+//all stat updates
+function statDisplay(){
+  $("#combo span").text(combo);
+  $("#score span").text(score);
+}
+
+
+
+//animation function
+function doBounce(element, times, distance, speed) {
+  for(var i = 0; i < times; i++) {
+      element.animate({marginTop: '-='+distance}, speed)
+          .animate({marginTop: '+='+distance}, speed);
+  }        
+}
+
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.text(minutes + ":" + seconds);
+
+      if (--timer == 0) {
+        $("#finalScore").show();
+        $("#game").hide();
+        $("#finalScore span").text(score);
+
+      }
+  }, 1000);
+}
+

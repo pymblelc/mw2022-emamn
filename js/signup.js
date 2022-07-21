@@ -1,4 +1,5 @@
-// -- store some username
+//adding function
+
 $('#notFound').hide();
 $('#found').hide();
 $('#wait').hide();

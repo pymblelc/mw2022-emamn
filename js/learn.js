@@ -1,34 +1,4 @@
 //array 
-
-var arrAnimals = ['Blob Fish', 'Australian Cobberdog', 'Naked Mole Rat', 'Arabian Sand Boa', 'Axolotl', 'Siamese cat', 'Aeoiwje']; //capital only ------
-
-function bubbleSort(arrayToSort){
-    var swapped = true;
-    var pass = 0;
-
-    while(swapped == true){
-        swapped = false;
-        let comparison = 0;
-        let length = arrayToSort.length;
-        
-        while(comparison<length - pass){
-
-            if(arrayToSort[comparison] > arrayToSort[comparison+1]){
-                
-                var store = arrayToSort[comparison+1];
-                arrayToSort[comparison+1] = arrayToSort[comparison];
-                arrayToSort[comparison] = store;
-                swapped = true;
-            }
-            comparison++;
-        }
-        pass++;
-
-}
-console.log(arrayToSort);
-}
-
-bubbleSort(arrAnimals);
 var arrNotesSorted = [ 
 {name:'Note A',value:'A'}, 
 {name:'Note B',value:'B'}, 
@@ -292,7 +262,7 @@ $('#next').click(function(){
         break;
 
         case 11:
-            $('#birdTalk span').text('I got nothin help');
+            $('#birdTalk span').text('It is how we remember the notes when sight reading in music.');
 
         break;
 
