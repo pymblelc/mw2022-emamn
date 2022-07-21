@@ -1,37 +1,4 @@
 //score DB
-var apikey = '61a3fa8734abfc7f972efc04';
-var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
-
-function submitScore(){
-    var Item = {
-        //add initials input for leaderboard 
-
-        Name: $('#nameInput').val(),
-        score: correctAnswer
-    }
-    addScore(Item, urlScores, apikey,);
-}
-
-function addScore(item, url, apikey){
-    var settings = { // Get existing users reqeust for
-        "async": true,
-        "crossDomain": true,
-        "url": url,
-        "method": "POST",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": apikey,
-            "cache-control": "no-cache"
-        },
-        "processData": false,
-        "data": JSON.stringify(item)
-    }
-    
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
-}
-
 
 $('#screen').hide();
 
@@ -40,11 +7,9 @@ setTimeout(function() { $('#screen').show(); }, 3000);
 
 
 $('.options').hide();
-$('#btnNext').hide();
+
 $('#gameover').hide();
 $('#tryagain').hide();
-
-$('#totalScore').hide();
 
 $('.stats').hide();
 $('h2').hide();
@@ -56,7 +21,6 @@ $('#name').hide();
 // $('#gameDisplay').hide();
 
 var correctAnswer = 0;
-
 var attempts = 3;
 var arrNoteq = [
     'images/C.png',
@@ -253,12 +217,12 @@ function correct(){
     statDisplay();
 
     //ending
-    // if(correctAnswer === 10){
+    if(correctAnswer === 10){
 
-    //     // $('#gameDisplay').hide();
-    //     // $('#finish').show();
+        $('#gameDisplay').hide();
+        $('#finish').show();
 
-    // }
+    }
 }
 
 
@@ -320,12 +284,12 @@ function startTimer(duration, display) {
 
         if (--timer == -1) { 
             //final finish screen (track score)
-            $('#gameDisplay').hide();
-            $('#finish').show();
-            $("#totalScore").show();
-            $("#totalScore span").text(correctAnswer);
+            gameover();
 
-            submitScore();
+
+
+
+
         }
         // if (--timer < 10) {
         //     $('#time').css("color", "red"); //uh oh only 1 left
@@ -334,7 +298,7 @@ function startTimer(duration, display) {
 }
 
 //have this on the outside
-var oneMinute = 10 //59 CHANGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+var oneMinute = 59 //59
 display = $('#time span');
 // startTimer(oneMinute, display);
 

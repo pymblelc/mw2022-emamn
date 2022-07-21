@@ -1,6 +1,6 @@
 body{
     font-size: 15px;
-    background-color: rgb(253, 211, 211);
+    background-color: rgb(224, 232, 255);
     /* background-image: url(../images/backgroundPROTO.jpg);
     background-size: cover; */
     font-family: sans-serif; 
@@ -36,22 +36,9 @@ body{
     top: 400px;
 }
 
-
 #userPlace{width: 10px;}
 #passPlace{width: 10px;}
 #emailPlace{width: 10px;}
-
-#checkPlace{
-
-}
-
-#login{
-
-}
-
-#signup{
-
-}
 
 .menuButton{
     /* background-color: rgb(145, 190, 226);

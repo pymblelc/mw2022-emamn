@@ -6,7 +6,7 @@ var arrNotesSorted = [
 {name:'Note D',value:'D'}, 
 {name:'Note E',value:'E'}, 
 {name:'Note F',value:'F'},
-{name:'Note G',value:'G'}]; // G not working
+{name:'Note G',value:'G'}]; 
 
 //global
 var found = false;
@@ -54,12 +54,9 @@ function binarySearch(arrayToSearch, searchTerm){
     else{
         console.log('not found')
         $('#insertimage').hide();
-
         $('#notfoundMessage').show();
     }
 }
-
-
 
 $('#searchButton').click(function(){
     $('.image').hide();

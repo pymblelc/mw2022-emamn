@@ -1,6 +1,5 @@
 var apikey = '61a3fa8734abfc7f972efc04';
 var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
-
 var arrScores = [];
 
 function submitScore() {
@@ -68,26 +67,33 @@ function getScore() {
 
       }
     }
-
     SelectionSort(response);
+
     console.log(response); 
+
+    // var leaderBoardItem = '<div id="board">' + '"' + response soemthing + '"' + "</div>"
+    // $("body").append(leaderBoardItem);
+
+
+
+    $("#leaderBoard span").text(response.score);
+    
     //display the sorted array onto leaderboard
     //display only top 10 scores
   });
 }
 
-getScore(); //sort the stuff??
+var sound = document.getElementById("sound");
 
-
-
-
-
+function playSound() {
+    sound.play();
+}
 
 $('#time').hide();
 $('#combo').hide();
 $('#score').hide();
 $('#reset').hide();
-
+$('#leaderBoard').hide();
 
 $("#finalScore").hide();
 
@@ -112,9 +118,10 @@ button.disabled = false;
 
 $('#btnStart').click(function () { //-------------------------------------------------------------------------------------
   // startTimer(oneMinute, display);
+  playSound();
+  setTimeout(function () {moveNotes1();}, 800);
 
-
-  var oneMinute = 10 //9
+  var oneMinute = 5 //9
   display = $('#time span');
   startTimer(oneMinute, display);
 
@@ -124,25 +131,46 @@ $('#btnStart').click(function () { //-------------------------------------------
   $('#score').show();
   $('#btnStart').hide();
   console.log('SONG START'); // ---------------------------------------------- play audio and pray it doesn't lag
-  // display perfect for the user, add the audio, make so when they hit perfect it adds then once = total amount of beats I want
-  // from the song, finish the game and complete tempo.
-
 
   // var oneMinute = 10 //9
   // display = $('#time span');
   // startTimer(oneMinute, display);
 
-  moveNotes1();
+  // moveNotes1();
   button.disabled = true
 
-  //let intervalId = setInterval(moveNotes1);
-  // const myInterval = setInterval(moveNotes1, 10);
-  // getPos(myInterval);
-  //clearInterval(intervalId);
-  //moveEnemy1();
-  //start function
-  //$("#note1").animate({top: '860px'}, 7000); 
+
 });
+
+function moveNotes1() { //clear interval moveNotes1
+
+  //retail 8 and 0
+  //
+  $('#n1').animate({ "top": "+=8", }, 0, "linear");// checkPass);
+  //console.log($("#n1")[0].style.top); ----------------------------------- coords
+
+  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 500) {
+    $("#n1")[0].style.top = 0
+    // console.log('miss');
+    $('#combo').hide();
+
+    $('#tempiHit').hide();
+    $('#tempiNeutral').show();
+
+    $('#miss').show();
+    setTimeout(function () { $('#miss').hide(); }, 800);
+
+    //if there is a combo to begin with
+    if (combo > 0) {
+      $('#reset').show();
+      $('#combo').css("color", "black");
+      setTimeout(function () { $('#reset').hide(); }, 800);
+    }
+    combo = 0;
+    statDisplay();
+  }
+  requestAnimationFrame(moveNotes1);
+}
 
 class notes {
   constructor(name, colour, top, left) {
@@ -240,7 +268,7 @@ function checkCollisions(arrTargets, theCharacter) {
           $('#combo').css("color", "rgb(225, 11, 233)");
         }
 
-        console.log('PERFECT')
+        // console.log('PERFECT')
 
         $('#talkBubble span').text('PERFECT!');
 
@@ -248,7 +276,7 @@ function checkCollisions(arrTargets, theCharacter) {
 
 
         combo = combo + 1
-        console.log(combo);
+        // console.log(combo);
         $('#combo').show();
 
 
@@ -287,63 +315,6 @@ note.create();
 
 
 // //animation function 
-//enemy 1
-var noteHit = false;
-function moveNotes1() { //clear interval moveNotes1
-  $('#n1').animate({ "top": "+=5", }, 0, "linear");// checkPass);
-  //console.log($("#n1")[0].style.top); ----------------------------------- coords
-
-  if (parseFloat($("#n1")[0].style.top.slice(0, -2)) > 500) {
-    $("#n1")[0].style.top = 0
-    console.log('miss');
-    $('#combo').hide();
-
-    $('#tempiHit').hide();
-    $('#tempiNeutral').show();
-
-
-    $('#miss').show();
-    setTimeout(function () { $('#miss').hide(); }, 800);
-
-    // doBounce($('#tempiNeutral'), 1, '30px', 300);
-
-
-
-    //if there is a combo to begin with
-
-    if (combo > 0) {
-      $('#reset').show();
-      $('#combo').css("color", "black");
-      setTimeout(function () { $('#reset').hide(); }, 800);
-    }
-
-
-    combo = 0;
-    statDisplay();
-
-
-    // miss();
-    console.log(combo);
-
-
-
-
-
-
-
-  }
-
-  //For a sound accompanied by a beat, the action of the user should not effect the note movement
-
-  // $('body').keydown(function(event){
-  //   if(event.which == 32){
-  //     $("#n1")[0].style.top = 0;
-  //     //console.log('miss from key');
-  //   }
-  // });
-
-  requestAnimationFrame(moveNotes1);
-}
 
 if (!miss) {
   console.log('hit');
@@ -430,7 +401,10 @@ function startTimer(duration, display) {
       $("#n1").hide();
       $("#finalScore span").text(score);
 
+      $('#leaderBoard').show();
+
       submitScore();
+      getScore(); //sort the stuff??
     }
   }, 1000);
 }

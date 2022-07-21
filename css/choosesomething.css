@@ -1,6 +1,6 @@
 body{
     font-size: 15px;
-    background-color: rgb(253, 211, 211);
+    background-color: rgb(224, 232, 255);
     font-family: sans-serif; 
 
 }
@@ -37,7 +37,7 @@ h1{ /* this is off with console */
 .box{
     width:200px;
     height:200px;
-    background-color: rgb(221, 205, 255);
+    background-color: rgb(171, 182, 220);
     border-radius: 100px;
     position: fixed;
     text-align: center;
@@ -48,7 +48,7 @@ h1{ /* this is off with console */
 
 .text{
     font-size: 30px;
-    color: rgb(158, 116, 244);
+    color: rgb(113, 75, 190);
     bottom: 260px;
     /* the console really messes this up*/
 }

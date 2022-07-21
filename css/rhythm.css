@@ -183,6 +183,13 @@ left: 800px;
   position: absolute;
 }
 
+#leaderBoard{
+  left: 630px;
+  font-size: 30px;
+  top: 600px;
+  position: absolute;
+}
+
 #btnStart{
   top: 600px;
   left: 670px;
@@ -218,7 +225,7 @@ left: 800px;
   
   top: 150px;
   left: 900px;
-  transform: scaleX(-1);
+
 }
 
 .messages{

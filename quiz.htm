@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title> Music game </title>
+    <title> Wendy Sings </title>
     <link rel="stylesheet" href="css/quiz.css">
-    <link rel="icon" type="image/jpg" href="images/aBird.png">
+    <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
@@ -29,10 +29,6 @@
         <audio id="sound" src="./audio/click3.mp3" type="audio/mpeg" preload="auto"></audio>
         <h1>Quiz branch</h1>
 
-        <div id="input">
-            Initials:<input id="nameInput" id="statAttempts"></input>
-        </div>
-
         <img id="gameover" src="images/gameover.png">
 
         <div id="gameDisplay">
@@ -44,7 +40,6 @@
             <h2>What note is this?</h2>
 
             <button class="generate" id="btnStart"><span>Start</span></button>
-            <button class="generate" id="btnNext">Next</button>
 
             <button class="options" id="answerC">Note C</button>
             <button class="options" id="answerD">Note D</button>
@@ -74,7 +69,6 @@
         </div>
 
         <div class="stats" id="finalScore">Final score: <span>0</span></div>
-        <div id="totalScore">Total score: <span>0</span></div>
 
         <button class="buttons" id="tryagain" onClick="window.location.reload();">Try Again?</button>
 
