@@ -54,9 +54,10 @@ function binarySearch(arrayToSearch, searchTerm){
     else{
         console.log('not found')
         $('#insertimage').hide();
+
+        $('#notfoundMessage').show();
     }
 }
-//calling on button press
 
 
 

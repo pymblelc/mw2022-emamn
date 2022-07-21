@@ -1,6 +1,42 @@
+
+var apikey = '61a3fa8734abfc7f972efc04';
+var urlScores = 'https://enirui-a66e.restdb.io/rest/scores';
+
+function getScore(){
+    var Item = {
+        //add initials input for leaderboard 
+
+        Name: $('#nameInput').val(),
+        score: score
+    }
+    addScore(Item, urlScores, apikey,);
+}
+
+function addScore(item, url, apikey){
+    var settings = { // Get existing users reqeust for
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": apikey,
+            "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(item)
+    }
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+}
+
+$('#time').hide();
 $('#combo').hide();
 $('#score').hide();
 $('#reset').hide();
+
 
 $("#finalScore").hide();
 
@@ -26,6 +62,13 @@ button.disabled = false;
 $('#btnStart').click(function(){ //-------------------------------------------------------------------------------------
   // startTimer(oneMinute, display);
 
+  
+  var oneMinute = 10 //9
+  display = $('#time span');
+  startTimer(oneMinute, display);
+
+  $('#input').hide();
+  $('#time').show();
   $('#tempiNeutral').show();
   $('#score').show();
   $('#btnStart').hide();
@@ -34,9 +77,9 @@ $('#btnStart').click(function(){ //---------------------------------------------
 // from the song, finish the game and complete tempo.
 
 
-var oneMinute = 10 //9
-display = $('#time span');
-startTimer(oneMinute, display);
+// var oneMinute = 10 //9
+// display = $('#time span');
+// startTimer(oneMinute, display);
 
   moveNotes1();
   button.disabled = true
@@ -330,14 +373,13 @@ function startTimer(duration, display) {
 
       display.text(minutes + ":" + seconds);
 
-      if (--timer == 0) {
+      if (--timer == -1) {
         $("#finalScore").show();
-
         $("#game").hide();
         $("#n1").hide();
-
         $("#finalScore span").text(score);
 
+        getScore();
       }
   }, 1000);
 }

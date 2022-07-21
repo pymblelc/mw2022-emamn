@@ -32,6 +32,7 @@ function addScore(item, url, apikey){
     });
 }
 
+
 $('#screen').hide();
 
 setTimeout(function() { $('#loadingScreen').hide(); }, 3000); //3 seconds to admire
@@ -317,7 +318,7 @@ function startTimer(duration, display) {
 
         display.text(minutes + ":" + seconds);
 
-        if (--timer == 0) {
+        if (--timer == -1) { 
             //final finish screen (track score)
             $('#gameDisplay').hide();
             $('#finish').show();
@@ -333,7 +334,7 @@ function startTimer(duration, display) {
 }
 
 //have this on the outside
-var oneMinute = 10 //59
+var oneMinute = 10 //59 CHANGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 display = $('#time span');
 // startTimer(oneMinute, display);
 
