@@ -91,7 +91,6 @@ function signup(){
 $('#signup').click(function(){
     checkAccounts(urlAccounts, apikey, $('#user').val(), $('#pass').val(), $('#email').val());
 });
-    
 
 function addAccount(item, url, apikey){
     var settings = { // Get existing users reqeust for

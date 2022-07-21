@@ -6,10 +6,10 @@ function getScore(){
     var Item = {
         //add initials input for leaderboard 
 
-        // name: $('#nameInput').val(),
+        Name: $('#nameInput').val(),
         score: correctAnswer
     }
-    addScore(Item, urlScores, apikey, );
+    addScore(Item, urlScores, apikey,);
 }
 
 function addScore(item, url, apikey){
@@ -74,9 +74,15 @@ var arrNoteq = [
 
 //random variable to detect
 var random = Math.floor(Math.random() * arrNoteq.length);
-    
-$('#btnStart').click(function(){
+
+var started = false;
+$('#btnStart').click(function(){ //NEXT BUTTON ----------------------------
     clickSound();
+    if (!started) { //so start can only be activated once
+        started = true;
+        startTimer(oneMinute, display); 
+    }
+
 
     for(var i = 0; i < arrNoteq.length; i++){
         // var random = Math.floor(Math.random() * arrNoteq.length);   brought up 
@@ -85,6 +91,7 @@ $('#btnStart').click(function(){
     console.log(random, arrNoteq[random]);
     // console.log(document.getElementById('display').src = arrNoteq[i]);
     $('#btnStart').hide();
+    $('#input').hide();
     $('.options').show();
     $('.stats').show();
     $('h2').show();
@@ -228,6 +235,7 @@ $('#answerF2').click(function(){
 
 
 function correct(){
+    $('.options').hide();
     $('#btnStart').show();
     $('#talkBubble span').text('That' + "'" + 's correct! Well done!');
 
@@ -324,12 +332,8 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-jQuery(function ($) {
-    var oneMinute = 60 //60
-        display = $('#time span');
-        startTimer(oneMinute, display);
-});
-
-
-
+//have this on the outside
+var oneMinute = 10 //59
+display = $('#time span');
+// startTimer(oneMinute, display);
 

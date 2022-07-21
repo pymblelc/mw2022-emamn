@@ -17,13 +17,14 @@ var perfect;
 var combo = 0;
 var score = 0;
 
+
 $('#loadingScreen').hide();
 
 const button = document.querySelector('#btnStart')
 button.disabled = false;
 
-$('#btnStart').click(function(){
-
+$('#btnStart').click(function(){ //-------------------------------------------------------------------------------------
+  // startTimer(oneMinute, display);
 
   $('#tempiNeutral').show();
   $('#score').show();
@@ -33,12 +34,9 @@ $('#btnStart').click(function(){
 // from the song, finish the game and complete tempo.
 
 
-  //display combo
-  jQuery(function ($) {
-    var oneMinute = 2 //60
-        display = $('#time span');
-    startTimer(oneMinute, display);
-  });
+var oneMinute = 10 //9
+display = $('#time span');
+startTimer(oneMinute, display);
 
   moveNotes1();
   button.disabled = true
@@ -62,7 +60,7 @@ class notes{
       this.id = '#' + this.name
   }
   create(){ //--------------------------------------------------------------------------------
-      this.html = '<div class="game"' + '<div id="' + this.name + '" class="notes">' + this.name + ' </div>' + '</div>';
+      this.html = '<div id="' + this.name + '" class="notes">' + this.name + ' </div>';
       $('body').append(this.html);
       var className = '#' + this.name
       $(className).animate({
@@ -334,7 +332,10 @@ function startTimer(duration, display) {
 
       if (--timer == 0) {
         $("#finalScore").show();
+
         $("#game").hide();
+        $("#n1").hide();
+
         $("#finalScore span").text(score);
 
       }

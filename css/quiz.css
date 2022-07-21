@@ -303,6 +303,8 @@ h2{
 }
 
 #input{
-    top: 500px;
+    top: 600px;
+    left: 620px;
+    z-index: 7;
     position: absolute;
 }
