@@ -63,6 +63,7 @@ function checkAccounts(url,apikey, username, password, email){
             console.log("this account is free!");
 
             $('#found').hide();
+            $('#notFound').hide();
             $('#wait').show();
 
             signup();

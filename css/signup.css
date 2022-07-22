@@ -1,15 +1,16 @@
 body{
     font-size: 15px;
-    background-color: rgb(253, 211, 211);
+    background-color: rgb(224, 232, 255);
     /* background-image: url(../images/backgroundPROTO.jpg);
     background-size: cover; */
     font-family: sans-serif; 
     background-repeat: no-repeat;
 }
 
-#found, #notFound, #wait { /* this is off with console */
+#notFound, #wait, #found{ /* this is off with console */
     color: red;
-    top: 190px;
+    top: 590px;
+    left: 310px;
     position: absolute;
 }
 
@@ -36,11 +37,9 @@ body{
     top: 400px;
 }
 
-
 #userPlace{width: 10px;}
 #passPlace{width: 10px;}
 #emailPlace{width: 10px;}
-
 
 .menuButton{
     /* background-color: rgb(145, 190, 226);
@@ -60,6 +59,14 @@ body{
 #btnStart{ /* START */
     top: 425px;
     left: 300px;
+
+}
+#displayUser{ /* START */
+    color: rgb(143, 98, 211);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    z-index: 8;
 
 }
 
@@ -82,6 +89,7 @@ body{
     width: 1000px;
     left: 0px;
     right: 0px;
+
 }
 
 
