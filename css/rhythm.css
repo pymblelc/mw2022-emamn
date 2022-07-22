@@ -177,16 +177,47 @@ left: 800px;
 }
 
 #finalScore{
-  left: 630px;
+  left: 720px;
   font-size: 30px;
-  top: 400px;
+  top: 450px;
   position: absolute;
 }
 
 #leaderBoard{
-  left: 630px;
+  left: 720px;
   font-size: 30px;
-  top: 600px;
+  top: 500px;
+  position: absolute;
+}
+
+#congrats{
+  height: 100px;
+  width: 600px;
+  background-color: white;
+  position: absolute;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 40px;
+  
+  top: 300px;
+  right: 220px;
+}
+
+#backMenu{
+  top: 450px;
+  left: 1000px;
+  width: 250px;
+  height: 70px;
+  font-size: 25px;
+  position: absolute;
+}
+
+#playAgain{
+  top: 550px;
+  left: 1000px;
+  width: 250px;
+  height: 70px;
+  font-size: 25px;
   position: absolute;
 }
 
@@ -225,6 +256,16 @@ left: 800px;
   
   top: 150px;
   left: 900px;
+
+}
+
+#tempiHappy{
+  height: 600px;
+  width: 600px;
+  position: absolute;
+  
+  top: 170px;
+  left: 100px;
 
 }
 

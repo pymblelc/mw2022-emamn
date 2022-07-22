@@ -71,15 +71,12 @@ function getScore() {
 
     console.log(response); 
 
-    // for(){
+    // var leaderBoardItem = '<div id="board">' + '"' + response[i].name or something+ '"' + "</div>"
+    // $("body").append(leaderBoardItem);
+    // $("#leaderBoard span").text(response); what is even happening
 
-    // }
 
-//response[i].score
-    $("#leaderBoard span").text(response);
-    
-    //display the sorted array onto leaderboard
-    //display only top 10 scores
+
   });
 }
 
@@ -93,9 +90,10 @@ $('#time').hide();
 $('#combo').hide();
 $('#score').hide();
 $('#reset').hide();
-$('#leaderBoard').hide();
 
-$("#finalScore").hide();
+$('#endScreen').hide();
+// $('#leaderBoard').hide();
+// $("#finalScore").hide();
 
 $('.messages').hide();
 
@@ -396,12 +394,12 @@ function startTimer(duration, display) {
     display.text(minutes + ":" + seconds);
 
     if (--timer == -1) {
-      $("#finalScore").show();
+      
       $("#game").hide();
       $("#n1").hide();
       $("#finalScore span").text(score);
 
-      $('#leaderBoard').show();
+      $('#endScreen').show();
 
       submitScore();
       getScore(); //sort the stuff??
