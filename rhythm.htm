@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head=>
+    <title> Wendy Sings </title>
+    <link rel="stylesheet" href="css/rhythm.css">
+    <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!--oh send help-->
+
+        <div id="game">
+            <button class="buttons" id="btnStart">start</button>
+
+            <div id="noteContainer"></div>
+            <div id="noteHit"></div>
+
+            <div id="instructions">HIT SPACE HERE!</div>
+
+
+
+            <div id="combo">COMBO: <span>0</span></div>
+            <div id="reset">Combo lost!</div>
+            <div id="score">Score: <span>0</span></div>
+
+
+            <img class="tempi" id="tempiHit" src="images/hit.png">
+            <img class="tempi" id="tempiNeutral" src="images/neutral.png">>
+
+
+            <div id="box"></div>
+
+            <!-- hitting messages  -->
+            <div id="pass"></div>
+            <div id="perfect"></div>
+
+            <div class="messages" id="miss">MISS</div>
+            <div class="messages" id="perfectmsg">PERFECT</div>
+            <div id="time">Time: <span>00:30</span></div>
+
+        </div>
+
+
+        <!-- input stuff -->
+        <div id="input">
+            Initials:<input id="nameInput" id="statAttempts"></input>
+        </div>
+
+
+<div id="endScreen">
+        <!-- timer -->
+        <div id="finalScore">Final score: <span>0</span></div>
+        <!-- <div id="leaderBoard">Learderboard: <span>0</span></div> -->
+
+        <img id="tempiHappy" src="images/birdHappy.png"></img>
+        <div id="congrats">Congratulations! You have completed the tempo branch!</div>
+
+        <button class="buttons" id="backMenu" onclick="location.href='./choosesomething.htm'">Back to
+            menu</button>
+        <button class="buttons" id="playAgain" onClick="window.location.reload();">Play Again</button>
+
+</div>
+
+        <!-- <div id="loadingScreen">
+        <img id="breakScreen" src="images/breakScreen.png">
+        <img id="loading" src="images/loading.gif">
+        </div> -->
+
+        <button class="buttons" id="btnBack" onclick="location.href='./choosesomething.htm'">
+            <-</button>
+                <button class="buttons" id="btnMenu" onclick="location.href='./index.htm'"> Logout </button>
+                <div id="bar"></div>
+                <audio id="sound" src="./audio/retail3.mp3" type="audio/mpeg" preload="auto"></audio>
+                <h1>Tempo branch</h1>
+
+                <script type="text/javascript" src="js/rhythm.js"></script>
+    </body>
+
+</html>

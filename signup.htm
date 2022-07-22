@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Wendy Sings </title>
+    <link rel="stylesheet" href="css/signup.css" />
+    <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Hello world -->
+    <div id="title">
+        <h1> wendy
+            <!--<br>--> sings
+        </h1>
+    </div>
+    <button id="back" onclick="location.href='./index.htm'">Go Back</button>
+    <img id="bird" src="images/hello.png">
+
+    <!-- <div id="notFound">Account successfully created!</div>
+    <div id="found"> This account already exists</div>
+    <div id="wait">Please wait a moment</div> -->
+
+    <div id="accountInputs">
+
+
+        Username:<div id="userPlace"><input class="accounts" id="user"></input></div>
+        Email:<div id="emailPlace"><input class="accounts" id=email></input></div>
+        Password:<div id="passPlace"><input class="accounts" type="password" id=pass></input></div>
+        <div id="checkPlace"><input class="accounts" input type=checkbox id=checkbox>Hearing Impairment?</input></div>
+
+
+        <button id="signup">Create Account</button>
+
+
+    </div>
+
+    <h4 id="found">This account already exists</h4>
+    <h4 id="notFound">Account successfully created!</h4>
+    <h4 id="wait">Please wait a moment...</h4>
+
+    <script type="text/javascript" src="js/signup.js"></script>
+</body>
+
+</html>

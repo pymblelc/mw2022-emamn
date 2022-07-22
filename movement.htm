@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Wendy Sings </title>
+    <link rel="stylesheet" href="css/movement.css">
+    <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+</head>
+
+<body>
+
+    <div class="player"></div>
+    <img id="clef" src="images/trebleClef.png"></img>
+    <img id="TS" src="images/timeSignature.png"></img>
+
+    <div class="space" id="spaceF"></div>
+    <div class="space" id="spaceA"></div>
+    <div class="space" id="spaceC"></div>
+    <div class="space" id="spaceE"></div>
+
+    <button class="buttons" id="btnBack" onclick="location.href='./choosesomething.htm'">
+        <-</button>
+            <button class="buttons" id="btnMenu" onclick="location.href='./Menu.htm'"> Main Menu </button>
+            <div id="bar"></div>
+            <h1>Learning time</h1>
+
+
+
+            <div class="staveLines" id="staveLine1"></div>
+            <div class="staveLines" id="staveLine2"></div>
+            <div class="staveLines" id="staveLine3"></div>
+
+            <div class="infoBox" id="infoClef"> This is a <strong>Treble Clef</strong> which shows the notes above
+                middle c</div>
+            <div class="infoBox" id="infoTS"> This is the time signature, it is the notation to represent how many beats
+                each bar</div>
+
+            <div class="infoBox" id="infoE"> This is the placeholder for the E note </div>
+            <div class="infoBox" id="infoG"> This is the placeholder for the G note</div>
+            <div class="infoBox" id="infoB"> This is the placeholder for the B note</div>
+            <div class="infoBox" id="infoD"> This is the placeholder for the D note</div>
+            <div class="infoBox" id="infoF"> This is the placeholder for the F note</div>
+
+
+            <script type="text/javascript" src="js/movement.js"></script>
+</body>
+
+</html>

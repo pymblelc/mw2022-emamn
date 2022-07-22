@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Wendy Sings </title>
+    <link rel="stylesheet" href="css/learn.css">
+    <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script> -->
+</head>
+<body>
+
+<!-- Navigation bar -->
+<button class="buttons" id="btnBack" onclick= "location.href='./choosesomething.htm'"><-</button>
+<button class="buttons" id="btnMenu" onclick= "location.href='./index.htm'"> Logout </button>
+<div id="bar"></div>
+
+<audio id="sound" src="./audio/click3.mp3" type="audio/mpeg" preload="auto"></audio>
+<button class="buttons" id="next">=></button>
+<button class="buttons" id="previous">previous</button>
+<button class="buttons" id="btnReady" onclick= "location.href='./quiz.htm'">Ready</button>
+<button class="buttons" id="btnNotready">I'm Not Ready</button>
+<button class="buttons" id="btnSkip">Skip</button>
+
+<button class="noteButton" id="C">C</button>
+<button class="noteButton" id="D">D</button>
+<button class="noteButton" id="E">E</button>
+<button class="noteButton" id="F">F</button>
+<button class="noteButton" id="G">G</button>
+<button class="noteButton" id="A">A</button>
+<button class="noteButton" id="B">B</button>
+
+<button class="noteButton" id="C2">C2</button>
+<button class="noteButton" id="D2">D2</button>
+<button class="noteButton" id="E2">E2</button>
+<button class="noteButton" id="F2">F2</button>
+
+<div id="search">
+    Search a note: <input id="searchBox"></input>
+    <button id="searchButton">Search</button>
+</div>
+
+
+<h1>Learning branch</h1>
+<!-- <div id="insertimage"></div> -->
+
+
+<div id="name">Tempi</div>
+
+<!-- guide images -->
+<img class="birdGuide" id="birdExplain1" src="images/birdExplain1.png">
+<img class="birdGuide" id="birdExplain2" src="images/birdExplain2.png">
+<img class="birdGuide" id="birdHappy" src="images/birdHappy.png">
+<img class="birdGuide" id="birdComplex" src="images/birdComplex.png">
+<img class="birdGuide" id="birdShock" src="images/birdShock.png">
+
+<div class="talkBubble" id="welcome"></div>
+<div class="talkBubble" id="explain"></div>
+
+<div class ="talk" id="birdTalk"><span>Welcome to wendysings! My name is Tempi. </span></div>
+
+
+<div class="staveLines" id="staveLine1"></div>
+<div class="staveLines" id="staveLine2"></div>
+<div class="staveLines" id="staveLine3"></div>
+
+
+<img id="treble" src="images/trebleClef.png">
+<img id="bass" src="images/bassClef.png">
+<img id="TS" src="images/timeSignature.png">
+
+<!-- <div id="disclaimer">These notes are from the C major scale</p></div> -->
+
+
+
+<img class="line" id="lineE" src="images/staffLine.png"></img>
+<img class="line" id="lineG" src="images/staffLine.png"></img>
+<img class="line" id="lineB" src="images/staffLine.png"></img>
+<img class="line" id="lineD" src="images/staffLine.png"></img>
+<img class="line" id="lineF" src="images/staffLine.png"></img>
+
+<img class="note" id="cNote" src="images/crotchetC.png"></img>
+<img class="note" id="dNote" src="images/crotchet.png"></img>
+<img class="note" id="eNote" src="images/crotchet.png"></img>
+<img class="note" id="fNote" src="images/crotchet.png"></img>
+<img class="note" id="gNote" src="images/crotchet.png"></img>
+<img class="note" id="aNote" src="images/crotchet.png"></img>
+<img class="note" id="bNote" src="images/ucrotchet.png"></img>
+<img class="note" id="c2Note" src="images/ucrotchet.png"></img>
+<img class="note" id="d2Note" src="images/ucrotchet.png"></img>
+<img class="note" id="e2Note" src="images/ucrotchet.png"></img>
+<img class="note" id="f2Note" src="images/ucrotchet.png"></img>
+
+
+<img class="fullScale" id="fullScale" src="images/fullScale.png">
+<img class="fullScale" id="acronymScale" src="images/acronymScale.png">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/learn.js"></script>
+</body> 
+</html>

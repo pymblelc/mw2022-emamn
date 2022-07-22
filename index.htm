@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> Wendy Sings </title>
+        <link rel="stylesheet" href="css/menu.css"/>
+        <link rel="icon" type="image/jpg" href="images/birdCorrect.png">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Hello world -->
+        <button id= "btnStart" class = "menuButton" onclick= "location.href='./choosesomething.htm'">START</button>
+        <div id="title"><h1> wendy <!--<br>--> sings </h1></div>
+        <img id="bird" src="images/hello.png" >
+
+        
+        <div id="displayUser">Welcome <span>username</span></div> 
+
+        <div>
+            
+            <audio id = "sound">
+                <source src = "./audio/bird.mp3" type="audio/mpeg">
+            </audio>
+
+            <button class= "menuButton" id="playButton" onclick="playSound()">TEST VOLUME &#9658</button>
+             <!-- <button id="Stop" onclick ="stop()">Stop &#9611</button> -->
+
+        </div>
+
+
+        <div id="accountInputs">
+
+
+            Username:<div id="userPlace"><input class ="accounts" id= "user"></input></div>
+            Password:<div id="passPlace"><input class="accounts" type= "password" id= pass ></input></div>
+
+        <h4 id="notFound">Account not found. Please check login details.</h4>
+        
+        <button id="login">Login</button>
+
+        <br>New here? <button id="signup" onclick= "location.href='./signup.htm'">Sign up</button> </br>
+
+
+
+
+        </div>
+
+    <script type="text/javascript" src="js/menu.js"></script>
+    </body>
+
+</html>
