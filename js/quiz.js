@@ -298,7 +298,7 @@ function startTimer(duration, display) {
 }
 
 //have this on the outside
-var oneMinute = 59 //59
+var oneMinute = 60 * 2 //59
 display = $('#time span');
 // startTimer(oneMinute, display);
 

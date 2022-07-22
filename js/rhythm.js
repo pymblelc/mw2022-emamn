@@ -71,12 +71,12 @@ function getScore() {
 
     console.log(response); 
 
-    // var leaderBoardItem = '<div id="board">' + '"' + response soemthing + '"' + "</div>"
-    // $("body").append(leaderBoardItem);
+    // for(){
 
+    // }
 
-
-    $("#leaderBoard span").text(response.score);
+//response[i].score
+    $("#leaderBoard span").text(response);
     
     //display the sorted array onto leaderboard
     //display only top 10 scores
@@ -121,7 +121,7 @@ $('#btnStart').click(function () { //-------------------------------------------
   playSound();
   setTimeout(function () {moveNotes1();}, 800);
 
-  var oneMinute = 5 //9
+  var oneMinute = 2 //9
   display = $('#time span');
   startTimer(oneMinute, display);
 
