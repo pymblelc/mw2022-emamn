@@ -117,9 +117,9 @@ button.disabled = false;
 $('#btnStart').click(function () { //-------------------------------------------------------------------------------------
   // startTimer(oneMinute, display);
   playSound();
-  setTimeout(function () {moveNotes1();}, 800);
+  setTimeout(function () {moveNotes1();}, 850);
 
-  var oneMinute = 2 //9
+  var oneMinute = 30 //29
   display = $('#time span');
   startTimer(oneMinute, display);
 

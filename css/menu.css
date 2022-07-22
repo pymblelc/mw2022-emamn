@@ -60,6 +60,14 @@ body{
     left: 300px;
 
 }
+#displayUser{ /* START */
+    color: rgb(143, 98, 211);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    z-index: 8;
+
+}
 
 #playButton{  /*   class is with menuButton -> TEST VOLUME    */
     top: 500px;
